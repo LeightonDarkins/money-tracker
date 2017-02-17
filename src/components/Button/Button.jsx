@@ -1,7 +1,11 @@
 import React from 'react'
 
 const Button = (props) => {
-  return (<button>{ props.text }</button>)
+  if (props.enabled) {
+    return (<button type='button' className='btn btn-success'>{ props.text }</button>)
+  }
+
+  return (<button type='button' className='btn btn-success' disabled>{ props.text }</button>)
 }
 
 export default Button

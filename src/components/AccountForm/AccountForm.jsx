@@ -1,21 +1,50 @@
 import React from 'react'
-import styles from './AccountForm.css'
+
+import constants from '../../globals/constants.js'
 
 import LabelledTextField from '../LabelledTextField/LabelledTextField.jsx'
-import LabelledNumberField from '../LabelledNumberField/LabelledNumberField.jsx'
 import CancelButton from '../CancelButton/CancelButton.jsx'
 import Button from '../Button/Button.jsx'
 
 class AccountForm extends React.Component {
-  render() {
-    let DEFAULT_DOLLAR_VALUE = 0.00
+  constructor(props) {
+    super(props)
 
+    this.state = {
+      accountName: constants.EMPTY_STRING,
+      valid: false
+    }
+
+    this.onAccountNameChange = this.onAccountNameChange.bind(this);
+    this.validate = this.validate.bind(this);
+  }
+
+  onAccountNameChange(event) {
+    let value = event.target.value
+
+    this.validate(value)
+    this.setState({ accountName: value })
+  }
+
+  validate(value) {
+    if (value.length >= constants.MINIMUM_ACCOUNT_NAME_LENGTH) {
+      this.setState({ valid: true })
+    } else {
+      this.setState({ valid: false })
+    }
+  }
+
+  render() {
     return (
-      <div>
-        <LabelledTextField label='Account Name' placeholder='Enter Account Name' />
-        <LabelledNumberField label='Starting Balance' default={ DEFAULT_DOLLAR_VALUE } />
+      <div className='starter-template'>
+        <h1>New Account</h1>
+        <LabelledTextField
+          label='Account Name'
+          placeholder='Enter Account Name'
+          default={ this.state.accountName }
+          onChange={ this.onAccountNameChange } />
         <CancelButton />
-        <Button text='Save' />
+        <Button text='Save' enabled={ this.state.valid } />
       </div>
     )
   }

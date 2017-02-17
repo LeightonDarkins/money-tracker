@@ -44,8 +44,9 @@
   },
   "jest": {
     "verbose": "true",
-    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
-    "testFileExtensions": ["es6", "js"],
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    },
     "moduleFileExtensions": ["js", "json", "es6", "jsx"],
     "testPathDirs": [
       "src"

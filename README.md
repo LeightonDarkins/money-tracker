@@ -14,4 +14,5 @@ Install everything else **npm install**
 ## Getting going
 
 Start webpack watcher: **npm run watch**  
-Start run specs with watcher: **npm test**  
+Start run specs with watcher: **npm run test-watch**  
+Start run specs: **npm test**  

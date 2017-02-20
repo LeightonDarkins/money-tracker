@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 
-import AccountForm from './components/AccountForm/AccountForm.jsx'
+import AccountForm from './containers/AccountForm/AccountForm.jsx'
 
 class App extends React.Component {
   render() {

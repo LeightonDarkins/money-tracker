@@ -2,9 +2,9 @@ import React from 'react'
 
 import constants from '../../globals/constants.js'
 
-import LabelledTextField from '../LabelledTextField/LabelledTextField.jsx'
-import CancelButton from '../CancelButton/CancelButton.jsx'
-import Button from '../Button/Button.jsx'
+import LabelledTextField from '../../components/LabelledTextField/LabelledTextField.jsx'
+import CancelButton from '../../components/CancelButton/CancelButton.jsx'
+import Button from '../../components/Button/Button.jsx'
 
 class AccountForm extends React.Component {
   constructor(props) {

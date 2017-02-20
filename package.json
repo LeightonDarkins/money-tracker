@@ -1,8 +1,9 @@
 {
   "name": "money-tracker",
   "version": "1.0.0",
-  "description": "",
+  "description": "A client for managing money",
   "main": "index.js",
+  "repository":"https://github.com/LeightonDarkins/money-tracker",
   "scripts": {
     "watch": "webpack --watch",
     "test": "jest",

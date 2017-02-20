@@ -8,6 +8,7 @@ describe('LabelledTextField', () => {
     let wrapper = shallow(<LabelledTextField label="Test" placeholder="Test Placeholder" />)
 
     expect(wrapper.type()).toEqual('div')
+    expect(wrapper.find('div').length).toEqual(3)
     expect(wrapper.find('span').length).toEqual(1)
     expect(wrapper.contains('Test')).toBeTruthy()
   })

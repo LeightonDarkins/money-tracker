@@ -13,26 +13,48 @@ class AccountForm extends React.Component {
 
     this.state = {
       accountName: constants.EMPTY_STRING,
-      valid: false
+      startingBalance: constants.EMPTY_STRING,
+      accountNameValid: true,
+      startingBalanceValid: true
     }
 
     this.onAccountNameChange = this.onAccountNameChange.bind(this);
-    this.validate = this.validate.bind(this);
+    this.onStartingBalanceChange = this.onStartingBalanceChange.bind(this);
+    this.accountFormIsValid = this.accountFormIsValid.bind(this);
   }
 
   onAccountNameChange(event) {
     let value = event.target.value
 
-    this.validate(value)
+    this.validateAccountName(value)
     this.setState({ accountName: value })
   }
 
-  validate(value) {
+  validateAccountName(value) {
     if (value.length >= constants.MINIMUM_ACCOUNT_NAME_LENGTH) {
-      this.setState({ valid: true })
+      this.setState({ accountNameValid: true })
     } else {
-      this.setState({ valid: false })
+      this.setState({ accountNameValid: false })
     }
+  }
+
+  onStartingBalanceChange(event) {
+    let value = event.target.value
+
+    this.validateStartingBalance(value)
+    this.setState({ startingBalance: value })
+  }
+
+  validateStartingBalance(value) {
+    if (isNaN(Number(value))) {
+       this.setState({ startingBalanceValid: false })
+    } else {
+      this.setState({ startingBalanceValid: true })
+    }
+  }
+
+  accountFormIsValid() {
+    return this.state.accountNameValid && this.state.startingBalanceValid;
   }
 
   render() {
@@ -44,9 +66,19 @@ class AccountForm extends React.Component {
           label='Account Name'
           placeholder='Enter Account Name'
           default={ this.state.accountName }
-          onChange={ this.onAccountNameChange } />
+          onChange={ this.onAccountNameChange }
+          validationError={ !this.state.accountNameValid }
+          validationMessage='Account name must be longer than 3 characters' />
+        <LabelledTextField
+          sharedStyle={ styles.formPadding }
+          label='Starting Balance'
+          placeholder='0.00'
+          default={ this.state.startingBalance }
+          onChange={ this.onStartingBalanceChange }
+          validationError={ !this.state.startingBalanceValid }
+          validationMessage='Starting balance must be a number' />
         <CancelButton sharedStyle={ styles.formPadding } />
-        <Button sharedStyle={ styles.formPadding } text='Save' enabled={ this.state.valid } />
+        <Button sharedStyle={ styles.formPadding } text='Save' enabled={ this.accountFormIsValid() } />
       </div>
     )
   }

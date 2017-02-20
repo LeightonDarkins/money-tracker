@@ -16,16 +16,25 @@ describe('AccountForm', () => {
 
   it('renders', () => {
     expect(wrapper.type()).toEqual('div')
-    expect(wrapper.find(LabelledTextField).length).toBe(1)
+    expect(wrapper.find(LabelledTextField).length).toBe(2)
     expect(wrapper.find(CancelButton).length).toBe(1)
     expect(wrapper.find(Button).length).toBe(1)
+
+    let expectedStateObject = {
+      accountName: constants.EMPTY_STRING,
+      startingBalance: constants.EMPTY_STRING,
+      accountNameValid: true,
+      startingBalanceValid: true
+    }
+
+    expect(wrapper.instance().state).toEqual(expectedStateObject)
   })
 
-  describe('.validate()', () => {
+  describe('.validateAccountName()', () => {
     it('invalid if string is empty', () => {
       let testValue = constants.EMPTY_STRING
 
-      wrapper.instance().validate(testValue)
+      wrapper.instance().validateAccountName(testValue)
 
       expect(wrapper.instance().state.valid).toBeFalsy()
     })
@@ -33,17 +42,17 @@ describe('AccountForm', () => {
     it('invalid if string is < 3 characters', () => {
       let testValue = '1'
 
-      wrapper.instance().validate(testValue)
+      wrapper.instance().validateAccountName(testValue)
 
-      expect(wrapper.instance().state.valid).toBeFalsy()
+      expect(wrapper.instance().state.accountNameValid).toBeFalsy()
     })
 
     it('valid if string >= 3 characters', () => {
       let testValue = '123'
 
-      wrapper.instance().validate(testValue)
+      wrapper.instance().validateAccountName(testValue)
 
-      expect(wrapper.instance().state.valid).toBeTruthy()
+      expect(wrapper.instance().state.accountNameValid).toBeTruthy()
     })
   })
 
@@ -60,4 +69,36 @@ describe('AccountForm', () => {
       expect(wrapper.instance().state.accountName).toEqual('test')
     })
   })
+
+  describe('.onStartingBalanceChange()', () => {
+    it('set startingBalance on state object', () => {
+      let testEvent = {
+        target: {
+          value: '12.00'
+        }
+      }
+
+      wrapper.instance().onStartingBalanceChange(testEvent)
+
+      expect(wrapper.instance().state.startingBalance).toEqual('12.00')
+    })
+  });
+
+  describe('.validateStartingBalance()', () => {
+    it('invalid if value is not a number', () => {
+      let testValue = 'test'
+
+      wrapper.instance().validateStartingBalance(testValue)
+
+      expect(wrapper.instance().state.startingBalanceValid).toBeFalsy()
+    })
+
+    it('invalid if value is a number', () => {
+      let testValue = '12.45'
+
+      wrapper.instance().validateStartingBalance(testValue)
+
+      expect(wrapper.instance().state.startingBalanceValid).toBeTruthy()
+    })
+  });
 })

@@ -2,6 +2,7 @@ import React from 'react'
 
 import constants from '../../globals/constants.js'
 
+import styles from './AccountForm.css'
 import LabelledTextField from '../../components/LabelledTextField/LabelledTextField.jsx'
 import CancelButton from '../../components/CancelButton/CancelButton.jsx'
 import Button from '../../components/Button/Button.jsx'
@@ -39,12 +40,13 @@ class AccountForm extends React.Component {
       <div className='starter-template'>
         <h1>New Account</h1>
         <LabelledTextField
+          sharedStyle={ styles.formPadding }
           label='Account Name'
           placeholder='Enter Account Name'
           default={ this.state.accountName }
           onChange={ this.onAccountNameChange } />
-        <CancelButton />
-        <Button text='Save' enabled={ this.state.valid } />
+        <CancelButton sharedStyle={ styles.formPadding } />
+        <Button sharedStyle={ styles.formPadding } text='Save' enabled={ this.state.valid } />
       </div>
     )
   }

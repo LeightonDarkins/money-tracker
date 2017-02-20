@@ -1,8 +1,10 @@
 import React from 'react'
 
 const LabelledTextField = (props) => {
+  let textFieldClass = 'input-group ' + props.sharedStyle
+
   return (
-    <div className='input-group'>
+    <div className={ textFieldClass }>
       <span className='input-group-addon' id='basic-addon1'>{ props.label }</span>
       <input
         type='text'

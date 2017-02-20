@@ -1,7 +1,9 @@
 import React from 'react'
 
-const CancelButton = () => {
-  return (<button type='button' className='btn btn-danger'>Cancel</button>)
+const CancelButton = (props) => {
+  let cancelClass = 'btn btn-danger ' + props.sharedStyle
+
+  return (<button type='button' className={ cancelClass }>Cancel</button>)
 }
 
 export default CancelButton

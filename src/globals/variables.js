@@ -1,5 +1,5 @@
 var globalVariables = {
-  primary: 'orange'
+  formElementMargin: '5px'
 }
 
 module.exports = globalVariables

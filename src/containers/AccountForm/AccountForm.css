@@ -1,0 +1,4 @@
+.formPadding {
+  margin-top: $formElementMargin;
+  margin-right: $formElementMargin;
+}

@@ -3,9 +3,9 @@ import { shallow, mount } from 'enzyme'
 
 import constants from '../../globals/constants.js'
 import AccountForm from './AccountForm'
-import LabelledTextField from '../LabelledTextField/LabelledTextField'
-import CancelButton from '../CancelButton/CancelButton'
-import Button from '../Button/Button'
+import LabelledTextField from '../../components/LabelledTextField/LabelledTextField'
+import CancelButton from '../../components/CancelButton/CancelButton'
+import Button from '../../components/Button/Button'
 
 describe('AccountForm', () => {
   let wrapper

@@ -22,7 +22,7 @@
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "webpack": "^1.14.0",
-    "autoprefixer": "^6.7.2",
+    "autoprefixer": "^6.7.2"
   },
   "devDependencies": {
     "babel-jest": "^18.0.0",

@@ -6,6 +6,7 @@
   "repository": "https://github.com/LeightonDarkins/money-tracker",
   "scripts": {
     "start": "webpack && node server.js",
+    "dev-start": "node server.js",
     "watch": "webpack --watch",
     "test": "jest",
     "test-watch": "jest --watch"

@@ -5,4 +5,4 @@ deployment:
   staging:
     branch: master
     heroku:
-      appname: money-tracker
+      appname: money-tracker-client

@@ -10,11 +10,12 @@ app.use('/dist', express.static(path.join(__dirname, 'dist')))
 app.use('/vendor', express.static(path.join(__dirname, 'vendor')))
 
 app.get('/', (req, res) => {
+  console.info('SERVER: serving index.html')
   res.sendFile(__dirname + '/index.html')
 })
 
 app.listen(port, () => {
-  console.log('Started at ' + port)
+  console.info('SERVER: started on ' + port)
 })
 
 module.exports = { app }

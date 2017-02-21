@@ -1,0 +1,11 @@
+.balanceSection {
+  border-radius: 5px;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.nameSection {
+  font-weight: bold;
+}

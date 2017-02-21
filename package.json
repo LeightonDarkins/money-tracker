@@ -22,7 +22,8 @@
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "webpack": "^1.14.0",
-    "autoprefixer": "^6.7.2"
+    "autoprefixer": "^6.7.2",
+    "postcss-initial": "^1.5.3"
   },
   "devDependencies": {
     "babel-jest": "^18.0.0",
@@ -34,7 +35,6 @@
     "nodemon": "^1.11.0",
     "postcss-color-function": "^3.0.0",
     "postcss-import": "^9.1.0",
-    "postcss-initial": "^1.5.3",
     "postcss-loader": "^1.2.2",
     "postcss-math": "0.0.7",
     "postcss-mixins": "^5.4.1",

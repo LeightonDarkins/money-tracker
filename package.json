@@ -21,10 +21,10 @@
     "express": "^4.14.1",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
-    "webpack": "^1.14.0"
+    "webpack": "^1.14.0",
+    "autoprefixer": "^6.7.2",
   },
   "devDependencies": {
-    "autoprefixer": "^6.7.2",
     "babel-jest": "^18.0.0",
     "css-loader": "^0.26.1",
     "enzyme": "^2.6.0",

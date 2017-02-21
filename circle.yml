@@ -1,3 +1,8 @@
 machine:
   node:
     version: 6.9.1
+deployment:
+  staging:
+    branch: master
+    heroku:
+      appname: money-tracker

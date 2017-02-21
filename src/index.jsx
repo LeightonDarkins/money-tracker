@@ -7,7 +7,7 @@ import AccountList from './containers/AccountList/AccountList.jsx'
 class App extends React.Component {
   render() {
     return (
-      <div className='container'>
+      <div>
         <AccountForm />
         <AccountList />
       </div>

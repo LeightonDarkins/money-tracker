@@ -2,7 +2,7 @@ import React from 'react'
 
 import constants from '../../globals/constants.js'
 
-import styles from './AccountForm.css'
+import styles from '../../common/styles/Form.css'
 import LabelledTextField from '../../components/LabelledTextField/LabelledTextField.jsx'
 import CancelButton from '../../components/CancelButton/CancelButton.jsx'
 import Button from '../../components/Button/Button.jsx'

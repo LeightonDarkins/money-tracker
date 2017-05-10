@@ -4,6 +4,7 @@ import { render } from 'react-dom'
 import AccountForm from './containers/AccountForm/AccountForm.jsx'
 import AccountList from './containers/AccountList/AccountList.jsx'
 import ExpenseForm from './containers/ExpenseForm/ExpenseForm.jsx'
+import CurrencyForm from './containers/CurrencyForm/CurrencyForm.jsx'
 
 class App extends React.Component {
   render() {
@@ -12,6 +13,7 @@ class App extends React.Component {
         <AccountForm />
         <AccountList />
         <ExpenseForm />
+        <CurrencyForm />
       </div>
     );
   }

@@ -5,7 +5,7 @@ const Button = (props) => {
   let disabledClass = 'btn btn-default ' + props.sharedStyle
 
   if (props.enabled) {
-    return (<button type='button' className={ successClass }>{ props.text }</button>)
+    return (<button type='button' className={ successClass } onClick={ props.onClick }>{ props.text }</button>)
   }
 
   return (<button type='button' className={ disabledClass } disabled>{ props.text }</button>)

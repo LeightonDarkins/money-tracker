@@ -1,4 +1,4 @@
-.validation_show {
+.validation-show {
   border-radius: 0 0 5px 5px;
   margin-right: 2%;
   margin-left: 1%;
@@ -9,6 +9,6 @@
   color: white;
 }
 
-.validation_hide {
+.validation-hide {
   display: none;
 }

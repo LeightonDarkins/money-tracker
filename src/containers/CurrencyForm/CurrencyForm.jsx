@@ -3,7 +3,6 @@ import axios from 'axios'
 
 import constants from '../../globals/constants.js'
 
-import styles from '../../common/styles/Form.css'
 import LabelledTextField from '../../components/LabelledTextField/LabelledTextField.jsx'
 import Button from '../../components/Button/Button.jsx'
 
@@ -45,18 +44,18 @@ class CurrencyForm extends React.Component {
         <h1>Exchange Rates</h1>
 
         <Button
-          sharedStyle={ styles.formPadding }
+          sharedStyle='form-padding'
           text='Get Rates'
           enabled = { true }
           onClick={ this.onExchangeClick } />
 
         <LabelledTextField
-          sharedStyle={ styles.formPadding }
+          sharedStyle='form-padding'
           label='USD to AUD'
           default={ this.state.rateUSDtoAUD } />
 
         <LabelledTextField
-          sharedStyle={ styles.formPadding }
+          sharedStyle='form-padding'
           label='AUD to USD'
           default={ this.state.rateAUDtoUSD } />
       </div>

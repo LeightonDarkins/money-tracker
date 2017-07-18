@@ -1,7 +1,5 @@
 import React from 'react'
 
-import styles from './LabelledTextField.css'
-
 class LabelledTextField extends React.Component {
   constructor(props) {
     super(props)
@@ -13,10 +11,10 @@ class LabelledTextField extends React.Component {
 
   validationClass() {
     if (this.props.validationError) {
-      return styles.validation_show
+      return 'validation-show'
     }
 
-    return styles.validation_hide
+    return 'validation-hide'
   }
 
   render() {

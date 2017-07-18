@@ -2,7 +2,6 @@ import React from 'react'
 
 import constants from '../../globals/constants.js'
 
-import styles from '../../common/styles/Form.css'
 import LabelledTextField from '../../components/LabelledTextField/LabelledTextField.jsx'
 import CancelButton from '../../components/CancelButton/CancelButton.jsx'
 import Button from '../../components/Button/Button.jsx'
@@ -63,7 +62,7 @@ class AccountForm extends React.Component {
         <h1>New Account</h1>
 
         <LabelledTextField
-          sharedStyle={ styles.formPadding }
+          sharedStyle='form-padding'
           label='Account Name'
           placeholder='Enter Account Name'
           default={ this.state.accountName }
@@ -71,15 +70,15 @@ class AccountForm extends React.Component {
           validationError={ !this.state.accountNameValid }
           validationMessage='Account name must be longer than 3 characters' />
         <LabelledTextField
-          sharedStyle={ styles.formPadding }
+          sharedStyle='form-padding'
           label='Starting Balance'
           placeholder='0.00'
           default={ this.state.startingBalance }
           onChange={ this.onStartingBalanceChange }
           validationError={ !this.state.startingBalanceValid }
           validationMessage='Starting balance must be a number' />
-        <CancelButton sharedStyle={ styles.formPadding } />
-        <Button sharedStyle={ styles.formPadding } text='Save' enabled={ this.accountFormIsValid() } />
+        <CancelButton sharedStyle='form-padding' />
+        <Button sharedStyle='form-padding' text='Save' enabled={ this.accountFormIsValid() } />
       </div>
     )
   }

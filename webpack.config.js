@@ -1,6 +1,5 @@
 var webpack = require('webpack');
-
-var postCSSConfig = require('./postcss.config');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var config = {
   entry: {
@@ -11,22 +10,25 @@ var config = {
     filename: '[name].js'
   },
   module: {
-    loaders: [
-      {
-        test: /\.jsx?/,
-        exclude: /node_modules/,
-        loader: 'babel'
-      },
+    rules: [
       {
         test: /\.css$/,
         exclude: /node_modules/,
-        loader: 'style!css?modules&importLoaders=1&locaIdentName=[hash:base64:5]&camelCase!postcss'
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: "css-loader"
+        })
+      },
+      {
+        test: /\.jsx?/,
+        exclude:/node_modules/,
+        use: 'babel-loader'
       }
     ]
   },
-  postcss: function() {
-    return postCSSConfig;
-  }
+  plugins: [
+    new ExtractTextPlugin('styles.css')
+  ]
 };
 
 module.exports = config;

@@ -1,5 +1,7 @@
 import React from 'react'
 
+import styles from './AccountListItem.css'
+
 const AccountListItem = (props) => {
   const nameClass = 'col-md-2 name-section'
   const balanceClass = 'col-md-3'

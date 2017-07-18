@@ -1,5 +1,7 @@
 import React from 'react'
 
+import styles from '../../common/styles/Form.css'
+
 import constants from '../../globals/constants.js'
 
 import LabelledTextField from '../../components/LabelledTextField/LabelledTextField.jsx'

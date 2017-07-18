@@ -1,6 +1,8 @@
 import React from 'react'
 import { render } from 'react-dom'
 
+import styles from './common/styles/Global.css'
+
 import AccountForm from './containers/AccountForm/AccountForm.jsx'
 import AccountList from './containers/AccountList/AccountList.jsx'
 import ExpenseForm from './containers/ExpenseForm/ExpenseForm.jsx'

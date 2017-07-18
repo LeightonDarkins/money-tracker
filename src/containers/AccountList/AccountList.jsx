@@ -1,4 +1,5 @@
 import React from 'react'
+import _ from 'lodash'
 
 import TestData from '../../globals/TestData.js'
 import AccountListItem from '../../components/AccountListItem/AccountListItem.jsx'
@@ -10,6 +11,14 @@ class AccountList extends React.Component {
     this.state = {
       accounts: TestData.ACCOUNT_LIST
     }
+  }
+
+  accountsBalance() {
+    const result = _.reduce(this.state.accounts, (sum, account) => {
+      return sum + account.balance
+    }, 0)
+
+    return result;
   }
 
   render() {
@@ -25,14 +34,15 @@ class AccountList extends React.Component {
     if (this.state.accounts.length === 0) {
       return (
         <div>
-          <h1>Accounts</h1>
+          <h3>Accounts</h3>
           <p>No Accounts Found</p>
         </div>
       )
     } else {
       return (
-        <div>
-          <h1>Accounts</h1>
+        <div className='money-tracker-section'>
+          <h3>Accounts</h3>
+          <p>Balance: ${ this.accountsBalance() }</p>
           <ul className='list-group'>
             { accounts }
           </ul>

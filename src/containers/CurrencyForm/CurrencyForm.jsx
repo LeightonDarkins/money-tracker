@@ -42,8 +42,8 @@ class CurrencyForm extends React.Component {
 
   render() {
     return (
-      <div className='starter-template'>
-        <h1>Exchange Rates</h1>
+      <div className='starter-template money-tracker-section'>
+        <h3>Exchange Rates</h3>
 
         <Button
           sharedStyle='form-padding'

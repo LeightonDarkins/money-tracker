@@ -11,8 +11,8 @@ import Button from '../../components/Button/Button.jsx'
 class ExpenseForm extends React.Component {
   render() {
     return (
-      <div>
-        <h1>New Expense</h1>
+      <div className='money-tracker-section'>
+        <h3>New Expense</h3>
         <div>
           <LabelledTextField
             sharedStyle='form-padding'

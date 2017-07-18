@@ -60,8 +60,8 @@ class AccountForm extends React.Component {
 
   render() {
     return (
-      <div className='starter-template'>
-        <h1>New Account</h1>
+      <div className='starter-template money-tracker-section'>
+        <h3>New Account</h3>
 
         <LabelledTextField
           sharedStyle='form-padding'

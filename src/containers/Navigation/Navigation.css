@@ -1,0 +1,12 @@
+.navigation-flexbox {
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.navigation-button {
+  height: 80px;
+  width: 80px;
+  border-radius: 100px;
+}

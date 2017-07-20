@@ -2,6 +2,10 @@
   background-color: #EEE;
 }
 
+.money-tracker-content {
+  margin-bottom: 100px;
+}
+
 .money-tracker-section {
   background-color: #FFF;
   padding-left: 10px;

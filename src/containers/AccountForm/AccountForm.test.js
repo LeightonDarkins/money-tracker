@@ -16,6 +16,8 @@ describe('AccountForm', () => {
 
   it('renders', () => {
     expect(wrapper.type()).toEqual('div')
+    
+    expect(wrapper.find('h3').length).toBe(1)
     expect(wrapper.find(LabelledTextField).length).toBe(2)
     expect(wrapper.find(CancelButton).length).toBe(1)
     expect(wrapper.find(Button).length).toBe(1)

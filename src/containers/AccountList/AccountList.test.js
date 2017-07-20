@@ -13,7 +13,8 @@ describe('AccountList', () => {
 
   it('renders', () => {
     expect(wrapper.type()).toEqual('div')
-    expect(wrapper.find('h1').length).toBe(1)
+    
+    expect(wrapper.find('h3').length).toBe(1)
     expect(wrapper.find('ul').length).toBe(1)
     expect(wrapper.find(AccountListItem).length).toBe(2)
   })

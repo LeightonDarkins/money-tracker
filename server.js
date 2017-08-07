@@ -16,18 +16,6 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html')
 })
 
-app.get('/currency', (req, res) => {
-  console.info('SERVER: getting USD to AUD rate')
-
-  axios.get(`http://www.apilayer.net/api/live?access_key=${process.env.MONEY_TRACKER_APP_ID}&source=USD&currencies=AUD&format=1`)
-  .then((data) =>{
-    res.send(data.data.quotes)
-  })
-  .catch((error) => {
-    console.error(error)
-  })
-})
-
 app.listen(port, () => {
   console.info('SERVER: started on ' + port)
 })

@@ -1,5 +1,8 @@
 import React from 'react'
+import axios from 'axios'
 import _ from 'lodash'
+
+import constants from '../../globals/constants.js'
 
 import TestData from '../../globals/TestData.js'
 import AccountListItem from '../../components/AccountListItem/AccountListItem.jsx'
@@ -9,8 +12,20 @@ class AccountList extends React.Component {
     super(props)
 
     this.state = {
-      accounts: TestData.ACCOUNT_LIST
+      accounts: []
     }
+  }
+
+  componentWillMount() {
+    axios.get(`${constants.SERVER_URI}/accounts`)
+    .then((data) =>{
+      let accounts = data.data
+
+      this.setState({ accounts: accounts })
+    })
+    .catch((error) => {
+      console.error(error)
+    })
   }
 
   accountsBalance() {

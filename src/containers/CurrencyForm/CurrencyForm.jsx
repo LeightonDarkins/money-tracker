@@ -1,9 +1,8 @@
 import React from 'react'
-import axios from 'axios'
 
 import styles from '../../common/styles/Form.css'
 
-import constants from '../../globals/constants.js'
+import requestor from '../../common/utilities/requestor.js'
 
 import LabelledTextField from '../../components/LabelledTextField/LabelledTextField.jsx'
 import Button from '../../components/Button/Button.jsx'
@@ -21,16 +20,12 @@ class CurrencyForm extends React.Component {
   }
 
   onExchangeClick() {
-    axios.get(`${constants.SERVER_URI}/currency`)
-    .then((data) =>{
-      let USDtoAUD = data.data.USDAUD
+    requestor.get('currency').then((data) => {
+      let USDtoAUD = data.USDAUD
 
       this.setState({ rateUSDtoAUD: USDtoAUD })
 
       this.calculateAUDtoUSD(USDtoAUD)
-    })
-    .catch((error) => {
-      console.error(error)
     })
   }
 

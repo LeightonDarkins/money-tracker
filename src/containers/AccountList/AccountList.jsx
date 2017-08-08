@@ -1,8 +1,9 @@
 import React from 'react'
-import axios from 'axios'
 import _ from 'lodash'
 
-import constants from '../../globals/constants.js'
+import styles from '../../common/styles/Form.css'
+
+import requestor from '../../common/utilities/requestor.js'
 
 import TestData from '../../globals/TestData.js'
 import AccountListItem from '../../components/AccountListItem/AccountListItem.jsx'
@@ -17,14 +18,10 @@ class AccountList extends React.Component {
   }
 
   componentWillMount() {
-    axios.get(`${constants.SERVER_URI}/accounts`)
-    .then((data) =>{
-      let accounts = data.data
+    requestor.get('accounts').then((data) =>{
+      let accounts = data
 
       this.setState({ accounts: accounts })
-    })
-    .catch((error) => {
-      console.error(error)
     })
   }
 

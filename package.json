@@ -52,5 +52,8 @@
     "moduleNameMapper": {
       "\\.(css|less)$": "identity-obj-proxy"
     }
+  },
+  "devDependencies": {
+    "browser-sync": "^2.18.13"
   }
 }

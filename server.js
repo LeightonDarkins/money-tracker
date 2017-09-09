@@ -2,7 +2,7 @@ var server = require('browser-sync').create();
 
 // .init starts the server
 server.init({
-    server: './'
+    server: './dist'
 });
 
 // Now call methods on bs instead of the

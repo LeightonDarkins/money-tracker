@@ -1,27 +1,21 @@
-var webpack = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+const webpack = require('webpack')
+const path = require('path')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-var config = {
+const config = {
   entry: {
-    app: __dirname + '/src/index.jsx'
+    app: path.join(__dirname, '/src/index.jsx')
   },
   output: {
-    path: __dirname + '/dist',
+    path: path.join(__dirname, '/dist'),
     filename: '[name].js'
   },
   module: {
     rules: [
-      {
-        test: /\.css$/,
-        exclude: /node_modules/,
-        use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: "css-loader"
-        })
-      },
+      // Load JSX
       {
         test: /\.jsx?/,
-        exclude:/node_modules/,
+        exclude: /node_modules/,
         use: 'babel-loader'
       }
     ]
@@ -29,13 +23,13 @@ var config = {
   plugins: [
     new ExtractTextPlugin('styles.css'),
     new webpack.DefinePlugin({
-      'process.env':{
+      'process.env': {
         'MONEY_TRACKER_ENV': JSON.stringify(process.env.MONEY_TRACKER_ENV),
         'MONEY_TRACKER_SERVER_HOST': JSON.stringify(process.env.MONEY_TRACKER_SERVER_HOST),
         'MONEY_TRACKER_SERVER_PORT': JSON.stringify(process.env.MONEY_TRACKER_SERVER_PORT)
       }
     })
   ]
-};
+}
 
-module.exports = config;
+module.exports = config

@@ -9,7 +9,8 @@
     "dev-start": "node server.js",
     "watch": "webpack --watch",
     "test": "jest",
-    "test-watch": "jest --watch"
+    "test-watch": "jest --watch",
+    "lint": "./node_modules/standard/bin/cmd.js"
   },
   "author": "",
   "license": "ISC",
@@ -32,27 +33,21 @@
     "style-loader": "^0.18.2",
     "webpack": "^2.0.0"
   },
-  "jest": {
-    "verbose": "true",
-    "transform": {
-      "^.+\\.jsx?$": "babel-jest"
-    },
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "es6",
-      "jsx"
-    ],
-    "testPathDirs": [
-      "src"
-    ],
-    "moduleNameMapper": {
-      "\\.(css|less)$": "identity-obj-proxy"
-    }
-  },
   "devDependencies": {
     "browser-sync": "^2.18.13",
     "react-redux": "^5.0.6",
-    "redux": "^3.7.2"
+    "redux": "^3.7.2",
+    "standard": "^10.0.3"
+  },
+  "jest": {
+    "verbose": "true",
+    "moduleNameMapper": {
+      "\\.(css|scss|png|svg)$": "<rootDir>/config/__jestMocks__/mock.js"
+    }
+  },
+  "standard": {
+    "ignore": [
+      "/dist/"
+    ]
   }
 }

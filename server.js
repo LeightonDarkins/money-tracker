@@ -1,15 +1,37 @@
-var server = require('browser-sync').create()
+const proxy = require('http-proxy-middleware')
+const axios = require('axios')
 const fakeBackend = require('./fakeBackend/fakebackend')
 
-// .init starts the server
-server.init({
-  server: './dist',
-  middleware: [
-    { route: '/accounts', handle: fakeBackend },
-    { route: '/account', handle: fakeBackend }
-  ]
-})
+const server = require('browser-sync').create()
 
-// Now call methods on bs instead of the
-// main browserSync module export
 server.watch('./dist/*').on('change', server.reload)
+
+const startServer = (backend) => {
+  server.init({
+    server: './dist',
+    middleware: [
+      { route: '/accounts', handle: backend },
+      { route: '/account', handle: backend }
+    ]
+  })
+}
+
+// Start server with either a fake backend or a proxy to the real one
+console.log('Checking if backend is running')
+axios.get('http://localhost:3020')
+.catch(error => {
+  if (error.response) {
+    return error.response
+  } else {
+    throw error
+  }
+})
+.then(_ => {
+  console.log('Backend is running, proxying to it')
+  const backendProxy = proxy({ target: 'http://localhost:3020', changeOrigin: true })
+  startServer(backendProxy)
+})
+.catch(_ => {
+  console.log('Backend is not running, starting fake backend')
+  startServer(fakeBackend)
+})

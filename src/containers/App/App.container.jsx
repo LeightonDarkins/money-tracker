@@ -1,14 +1,16 @@
 import React from 'react'
-import { render } from 'react-dom'
+
+import AccountPage from '../../containers/AccountPage/Accountpage.container.jsx'
 
 class App extends React.Component {
   render () {
     return (
       <div>
         <h1>Money Tracker</h1>
+        <AccountPage />
       </div>
     )
   }
 }
 
-render(<App />, document.getElementById('app'))
+export default App

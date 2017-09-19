@@ -2,6 +2,7 @@ import React from 'react'
 
 import AccountPage from '../../containers/AccountPage/Accountpage.container.jsx'
 import CategoryPage from '../../containers/CategoryPage/CategoryPage.container.jsx'
+import TransactionPage from '../../containers/TransactionPage/TransactionPage.container.jsx'
 
 class App extends React.Component {
   render () {
@@ -10,6 +11,7 @@ class App extends React.Component {
         <h1>Money Tracker</h1>
         <AccountPage />
         <CategoryPage />
+        <TransactionPage />
       </div>
     )
   }

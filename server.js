@@ -11,14 +11,15 @@ const startServer = (backend) => {
     server: './dist',
     middleware: [
       { route: '/account', handle: backend },
-      { route: '/category', handle: backend }
+      { route: '/category', handle: backend },
+      { route: '/transaction', handle: backend }
     ]
   })
 }
 
 // Start server with either a fake backend or a proxy to the real one
 console.log('Checking if backend is running')
-axios.get('https://money-tracker-server.herokuapp.com')
+axios.get('http://localhost:3020')
 .catch(error => {
   if (error.response) {
     return error.response
@@ -28,7 +29,7 @@ axios.get('https://money-tracker-server.herokuapp.com')
 })
 .then(_ => {
   console.log('Backend is running, proxying to it')
-  const backendProxy = proxy({ target: 'https://money-tracker-server.herokuapp.com', changeOrigin: true })
+  const backendProxy = proxy({ target: 'http://localhost:3020', changeOrigin: true })
   startServer(backendProxy)
 })
 .catch(_ => {

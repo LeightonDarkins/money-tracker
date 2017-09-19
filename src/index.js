@@ -10,6 +10,7 @@ import AccountFormSaga from './containers/AccountForm/AccountForm.saga'
 import AccountListSaga from './containers/AccountList/AccountList.saga'
 import CategoryFormSaga from './containers/CategoryForm/CategoryForm.saga'
 import CategoryListSaga from './containers/CategoryList/CategoryList.saga'
+import TransactionFormSaga from './containers/TransactionForm/TransactionForm.saga'
 import App from './containers/App/App.container.jsx'
 
 const sagaMiddleware = createSagaMiddleware()
@@ -23,6 +24,7 @@ sagaMiddleware.run(AccountFormSaga)
 sagaMiddleware.run(AccountListSaga)
 sagaMiddleware.run(CategoryFormSaga)
 sagaMiddleware.run(CategoryListSaga)
+sagaMiddleware.run(TransactionFormSaga)
 
 render(
   <Provider store={store}>

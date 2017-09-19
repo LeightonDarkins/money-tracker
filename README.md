@@ -1,6 +1,6 @@
 # money-tracker
 
-An application to record and report on spending habits
+An application to record and report on spending habits. It's great!
 
 #### Build status
 

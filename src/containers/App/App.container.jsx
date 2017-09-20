@@ -1,6 +1,6 @@
 import React from 'react'
 
-import AccountPage from '../../containers/AccountPage/Accountpage.container.jsx'
+import AccountPage from '../../containers/AccountPage/AccountPage.container.jsx'
 import CategoryPage from '../../containers/CategoryPage/CategoryPage.container.jsx'
 import TransactionPage from '../../containers/TransactionPage/TransactionPage.container.jsx'
 

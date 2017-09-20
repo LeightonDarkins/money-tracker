@@ -1,5 +1,5 @@
 import axios from 'axios'
-const uri = `${process.env.MONEY_TRACKER_SERVER_HOST}:${process.env.MONEY_TRACKER_SERVER_PORT}`
+const uri = `https://${process.env.MONEY_TRACKER_SERVER_HOST}:${process.env.MONEY_TRACKER_SERVER_PORT}`
 
 export default {
   createAccount: (accountDetails) => {

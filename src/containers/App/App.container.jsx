@@ -1,4 +1,5 @@
 import React from 'react'
+import './App.css'
 
 import AccountPage from '../../containers/AccountPage/AccountPage.container.jsx'
 import CategoryPage from '../../containers/CategoryPage/CategoryPage.container.jsx'

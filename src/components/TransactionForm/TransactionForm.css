@@ -1,0 +1,26 @@
+label {
+  font-family: Roboto;
+  font-size: 13px;
+  display: block;
+  margin: 5px 0 5px 0;
+}
+
+input {
+  height: 41px;
+  width: 310px;
+  padding: 0 5px 0 5px;
+  margin: 5px 0 5px 0;
+  font-size: 20px;
+}
+
+select {
+  height: 41px;
+  width: 310px;
+  margin: 5px 0 5px 0;
+}
+
+button {
+  height: 41px;
+  width: 310px;
+  margin: 5px 0 5px 0;
+}

@@ -17,6 +17,18 @@ const config = {
         test: /\.jsx?/,
         exclude: /node_modules/,
         use: 'babel-loader'
+      },
+      // Load CSS and SCSS
+      {
+        test: /\.scss?|\.css?/,
+        exclude: /node_modules/,
+        use: ExtractTextPlugin.extract({
+          use: [
+            { loader: 'css-loader' },
+            { loader: 'sass-loader' }
+          ],
+          fallback: 'style-loader'
+        })
       }
     ]
   },

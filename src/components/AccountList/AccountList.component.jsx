@@ -3,17 +3,20 @@ import PropTypes from 'prop-types'
 import Account from '../Account/Account.component.jsx'
 
 const AccountList = ({ accounts, onAccountClick }) => (
-  <ul>
-    {
-      accounts.map(account => (
-        <Account
-          key={account.id}
-          balance={account.balance}
-          name={account.name}
-          onClick={() => onAccountClick(account.id)} />
-      ))
-    }
-  </ul>
+  <div>
+    <h2>Accounts</h2>
+    <ul>
+      {
+        accounts.map(account => (
+          <Account
+            key={account.id}
+            balance={account.balance}
+            name={account.name}
+            onClick={() => onAccountClick(account.id)} />
+        ))
+      }
+    </ul>
+  </div>
 )
 
 AccountList.propTypes = {

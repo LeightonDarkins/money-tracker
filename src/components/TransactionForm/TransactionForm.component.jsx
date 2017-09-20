@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import './TransactionForm.css'
 
 const TransactionForm = ({
   amount,
@@ -14,16 +15,16 @@ const TransactionForm = ({
   accounts,
   onSubmitClick
 }) => {
-  const firstAccount = () => {
-    if (accounts.length <= 0) return 'nothing...'
-
-    return accounts[0].id
+  const categoryOptions = () => {
+    return categories.map(category => (
+      <option key={category.id} value={category.id}>{ category.name }</option>
+    ))
   }
 
-  const firstCategory = () => {
-    if (categories.length <= 0) return 'nada...'
-
-    return categories[0].id
+  const accountOptions = () => {
+    return accounts.map(account => (
+      <option key={category.id} value={account.id}>{ account.name }</option>
+    ))
   }
 
   return (
@@ -41,14 +42,16 @@ const TransactionForm = ({
 
       <div>
         <label>Category</label>
-        <input value={category} onChange={onCategoryChange} />
-        <p>value: {firstCategory()}</p>
+        <select onChange={onCategoryChange}>
+          { categoryOptions() }
+        </select>
       </div>
 
       <div>
         <label>Account</label>
-        <input value={account} onChange={onAccountChange} />
-        <p>value: {firstAccount()}</p>
+        <select onChange={onAccountChange}>
+          { accountOptions() }
+        </select>
       </div>
 
       <button onClick={() => onSubmitClick({ amount, date, category, account })}>

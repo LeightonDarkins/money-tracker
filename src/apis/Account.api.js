@@ -1,9 +1,10 @@
 import axios from 'axios'
+const uri = `${process.env.MONEY_TRACKER_SERVER_HOST}:${process.env.MONEY_TRACKER_SERVER_PORT}`
 
 export default {
   createAccount: (accountDetails) => {
     return axios.request({
-      url: '/account',
+      url: `${uri}/account`,
       method: 'post',
       data: accountDetails,
       responseType: 'json'
@@ -11,7 +12,7 @@ export default {
   },
   fetchAccounts: () => {
     return axios.request({
-      url: '/account',
+      url: `${uri}/account`,
       method: 'get',
       responseType: 'json'
     }).then(response => response.data)

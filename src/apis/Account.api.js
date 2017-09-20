@@ -1,10 +1,12 @@
 import axios from 'axios'
-const uri = `https://${process.env.MONEY_TRACKER_SERVER_HOST}:${process.env.MONEY_TRACKER_SERVER_PORT}`
+import { generateUrl } from './Api.configuration'
+
+const url = generateUrl('account')
 
 export default {
   createAccount: (accountDetails) => {
     return axios.request({
-      url: `${uri}/account`,
+      url,
       method: 'post',
       data: accountDetails,
       responseType: 'json'
@@ -12,7 +14,7 @@ export default {
   },
   fetchAccounts: () => {
     return axios.request({
-      url: `${uri}/account`,
+      url,
       method: 'get',
       responseType: 'json'
     }).then(response => response.data)

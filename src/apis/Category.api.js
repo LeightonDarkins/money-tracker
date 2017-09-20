@@ -1,10 +1,12 @@
 import axios from 'axios'
-const uri = `https://${process.env.MONEY_TRACKER_SERVER_HOST}:${process.env.MONEY_TRACKER_SERVER_PORT}`
+import { generateUrl } from './Api.configuration'
+
+const url = generateUrl('category')
 
 export default {
   createCategory: (categoryDetails) => {
     return axios.request({
-      url: `${uri}/category`,
+      url,
       method: 'post',
       data: categoryDetails,
       responseType: 'json'
@@ -12,7 +14,7 @@ export default {
   },
   fetchCategories: () => {
     return axios.request({
-      url: `${uri}/category`,
+      url,
       method: 'get',
       responseType: 'json'
     }).then(response => response.data)

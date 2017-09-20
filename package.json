@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": "https://github.com/LeightonDarkins/money-tracker",
   "scripts": {
-    "start": "node server.js",
+    "start": "webpack && node server.js",
     "start-remote": "node local-server.js",
     "start-local": "node local-server.js --local",
     "dev-start": "node server.js",

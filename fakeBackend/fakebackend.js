@@ -6,7 +6,7 @@ const headers = {'Content-Type': 'application/json'}
 // Routes for fake backend. Map of 'METHOD /path' to (request) => [status, headers, body]
 const ROUTES = {
   'POST /account': () => [ 200, headers, createAccountResponse ],
-  'GET /accounts': () => [ 200, headers, accountsResponse ]
+  'GET /account': () => [ 200, headers, accountsResponse ]
 }
 
 // Fake backend middleware

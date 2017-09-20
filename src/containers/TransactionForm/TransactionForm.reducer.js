@@ -6,7 +6,7 @@ const categoryForm = (state = initialState, action) => {
   switch (action.type) {
     case types.amountChanged:
       return Object.assign({}, state, {
-        amount: action.amount
+        amount: +action.amount
       })
 
     case types.dateChanged:

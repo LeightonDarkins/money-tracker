@@ -18,7 +18,9 @@ class TransactionPage extends React.Component {
   }
 }
 
-const mapStateToProps = state => {}
+const mapStateToProps = state => {
+  return {}
+}
 
 const mapDispatchToProps = dispatch => {
   return {

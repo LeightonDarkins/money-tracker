@@ -27,6 +27,12 @@ app.get('/manifest.json', (req, res) => {
   res.sendFile(`${__dirname}/dist/manifest.json`)
 })
 
+app.get('/cache.manifest', (req, res) => {
+  console.log('getting cache manifest')
+
+  res.sendFile(`${__dirname}/dist/cache.manifest`)
+})
+
 app.listen(port, () => {
   console.log(`Started at ${port}`)
 })

@@ -1,4 +1,4 @@
-const initialState = { name: '', balance: '' }
+const initialState = { name: '', balance: 0 }
 
 const accountForm = (state = initialState, action) => {
   switch (action.type) {
@@ -9,7 +9,7 @@ const accountForm = (state = initialState, action) => {
 
     case 'BALANCE_CHANGED':
       return Object.assign({}, state, {
-        balance: action.balance
+        balance: +action.balance
       })
 
     default:

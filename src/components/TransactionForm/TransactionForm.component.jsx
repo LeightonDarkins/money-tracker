@@ -23,7 +23,7 @@ const TransactionForm = ({
 
   const accountOptions = () => {
     return accounts.map(account => (
-      <option key={category.id} value={account.id}>{ account.name }</option>
+      <option key={account.id} value={account.id}>{ account.name }</option>
     ))
   }
 

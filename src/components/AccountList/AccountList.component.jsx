@@ -11,9 +11,8 @@ const AccountList = ({ accounts, onAccountClick }) => (
         accounts.map(account => {
           const link = `/transactions/${account.id}`
 
-          return (<Link to={link}>
+          return (<Link key={account.id} to={link}>
             <Account
-              key={account.id}
               balance={account.balance}
               name={account.name}
               onClick={() => onAccountClick(account.id)} />

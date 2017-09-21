@@ -8,9 +8,8 @@
     "start": "webpack && node server.js",
     "start-remote": "node local-server.js",
     "start-local": "node local-server.js --local",
-    "dev-start": "node server.js",
     "watch": "webpack --watch",
-    "test": "jest",
+    "test": "npm run lint && jest",
     "test-watch": "jest --watch",
     "lint": "./node_modules/standard/bin/cmd.js"
   },

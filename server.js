@@ -21,6 +21,12 @@ app.get('/app.js', (req, res) => {
   res.sendFile(`${__dirname}/dist/app.js`)
 })
 
+app.get('/manifest.json', (req, res) => {
+  console.log('getting manifest')
+
+  res.sendFile(`${__dirname}/dist/manifest.json`)
+})
+
 app.listen(port, () => {
   console.log(`Started at ${port}`)
 })

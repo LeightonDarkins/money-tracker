@@ -1,0 +1,9 @@
+CACHE MANIFEST
+
+CACHE:
+/manifest.json
+/styles.css
+/app.js
+
+NETWORK:
+*

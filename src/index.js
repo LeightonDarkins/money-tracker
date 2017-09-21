@@ -12,15 +12,10 @@ import CategoryFormSaga from './containers/CategoryForm/CategoryForm.saga'
 import CategoryListSaga from './containers/CategoryList/CategoryList.saga'
 import TransactionFormSaga from './containers/TransactionForm/TransactionForm.saga'
 import App from './containers/App/App.container.jsx'
-
-
 import createHistory from 'history/createBrowserHistory'
 import { ConnectedRouter, routerMiddleware } from 'react-router-redux'
 
-
 const history = createHistory()
-
-// Build the middleware for intercepting and dispatching navigation actions
 const rMiddleware = routerMiddleware(history)
 
 const sagaMiddleware = createSagaMiddleware()

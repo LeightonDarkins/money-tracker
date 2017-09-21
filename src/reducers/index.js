@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux'
+import { routerReducer } from 'react-router-redux'
 import AccountList from '../containers/AccountList/AccountList.reducer'
 import AccountForm from '../containers/AccountForm/AccountForm.reducer'
 import CategoryForm from '../containers/CategoryForm/CategoryForm.reducer'
@@ -10,7 +11,8 @@ const MoneyTracker = combineReducers({
   AccountForm,
   CategoryForm,
   CategoryList,
-  TransactionForm
+  TransactionForm,
+  router: routerReducer
 })
 
 export default MoneyTracker

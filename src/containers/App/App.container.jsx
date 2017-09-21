@@ -1,4 +1,5 @@
 import React from 'react'
+import { Route } from 'react-router'
 import './App.css'
 
 import AccountPage from '../../containers/AccountPage/AccountPage.container.jsx'
@@ -10,9 +11,9 @@ class App extends React.Component {
     return (
       <div>
         <h1>Money Tracker</h1>
-        <AccountPage />
-        <CategoryPage />
-        <TransactionPage />
+        <Route exact path='/' component={AccountPage} />
+        <Route path='/categories' component={CategoryPage} />
+        <Route path='/transactions' component={TransactionPage} />
       </div>
     )
   }

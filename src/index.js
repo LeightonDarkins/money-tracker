@@ -13,11 +13,20 @@ import CategoryListSaga from './containers/CategoryList/CategoryList.saga'
 import TransactionFormSaga from './containers/TransactionForm/TransactionForm.saga'
 import App from './containers/App/App.container.jsx'
 
+
+import createHistory from 'history/createBrowserHistory'
+import { ConnectedRouter, routerMiddleware } from 'react-router-redux'
+
+
+const history = createHistory()
+
+// Build the middleware for intercepting and dispatching navigation actions
+const rMiddleware = routerMiddleware(history)
+
 const sagaMiddleware = createSagaMiddleware()
 
-const store = createStore(
-  MoneyTracker,
-  composeWithDevTools(applyMiddleware(sagaMiddleware))
+const store = createStore(MoneyTracker,
+  composeWithDevTools(applyMiddleware(sagaMiddleware, rMiddleware))
 )
 
 sagaMiddleware.run(AccountFormSaga)
@@ -28,7 +37,9 @@ sagaMiddleware.run(TransactionFormSaga)
 
 render(
   <Provider store={store}>
-    <App />
+    <ConnectedRouter history={history}>
+      <App />
+    </ConnectedRouter>
   </Provider>,
   document.getElementById('app')
 )

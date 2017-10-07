@@ -33,6 +33,24 @@ app.get('/cache.manifest', (req, res) => {
   res.sendFile(`${__dirname}/dist/cache.manifest`)
 })
 
+app.get('/assets/fontawesome-webfont.woff2', (req, res) => {
+  console.log('getting cache manifest')
+
+  res.sendFile(`${__dirname}/dist/assets/fontawesome-webfont.woff2`)
+})
+
+app.get('/assets/fontawesome-webfont.woff', (req, res) => {
+  console.log('getting cache manifest')
+
+  res.sendFile(`${__dirname}/dist/assets/fontawesome-webfont.woff`)
+})
+
+app.get('/assets/fontawesome-webfont.ttf', (req, res) => {
+  console.log('getting cache manifest')
+
+  res.sendFile(`${__dirname}/dist/assets/fontawesome-webfont.ttf`)
+})
+
 app.listen(port, () => {
   console.log(`Started at ${port}`)
 })

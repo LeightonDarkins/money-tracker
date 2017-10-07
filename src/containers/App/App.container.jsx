@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route } from 'react-router'
-import './App.css'
+import './App.scss'
 
 import AccountPage from '../../containers/AccountPage/AccountPage.container.jsx'
 import CategoryPage from '../../containers/CategoryPage/CategoryPage.container.jsx'

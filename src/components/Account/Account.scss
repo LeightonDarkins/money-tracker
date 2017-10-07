@@ -1,0 +1,21 @@
+.account-container {
+  width: 100%;
+  min-width: 300px;
+  height: 45px;
+  min-height: 45px;
+  margin: 5px auto 5px auto;
+  border-bottom: 1px solid #ddd;
+}
+
+.account-element {
+  padding: 5px;
+}
+
+.account-name {
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+.account-balance {
+  float: right;
+}

@@ -24,10 +24,21 @@ const config = {
         exclude: /node_modules/,
         use: ExtractTextPlugin.extract({
           use: [
-            { loader: 'css-loader' }
+            { loader: 'css-loader' },
+            { loader: 'sass-loader' }
           ],
           fallback: 'style-loader'
         })
+      },
+      // Load Fonts with url-loader
+      {
+        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'url-loader?limit=10000&mimetype=application/font-woff&name=assets/[name].[ext]'
+      },
+      // Load Fonts/Images with file-loader
+      {
+        test: /\.(ttf|eot|svg|png)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'file-loader?name=assets/[name].[ext]'
       }
     ]
   },

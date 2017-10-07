@@ -1,10 +1,24 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Account = ({ balance, name, onClick }) => {
+import './Account.scss'
+
+const Account = ({ balance, name, onAccountClick }) => {
+  const balanceAsCurrency = () => {
+    const formatter = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD'
+    })
+
+    return formatter.format(balance)
+  }
+
   return (
-    <li onClick={onClick}>
-      { name } : { balance }
+    <li className='account-list-item' onClick={onAccountClick}>
+      <div className='account-container'>
+        <span className='account-element account-name'>{ name }</span>
+        <span className='account-element account-balance'>{ balanceAsCurrency() }</span>
+      </div>
     </li>
   )
 }
@@ -12,7 +26,7 @@ const Account = ({ balance, name, onClick }) => {
 Account.propTypes = {
   balance: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired
+  onAccountClick: PropTypes.func.isRequired
 }
 
 export default Account

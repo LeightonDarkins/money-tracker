@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import AccountList from '../AccountList/AccountList.container.jsx'
-import AddAccount from '../AccountForm/AccountForm.container.jsx'
 import { fetchAccounts } from './AccountPage.actions'
 
 class AccountPage extends React.Component {
@@ -13,7 +12,6 @@ class AccountPage extends React.Component {
     return (
       <div>
         <AccountList />
-        <AddAccount />
       </div>
     )
   }

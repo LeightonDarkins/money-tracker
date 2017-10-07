@@ -12,6 +12,15 @@ const mapDispatchToProps = dispatch => {
   return {
     onAccountClick: (id) => {
       dispatch(accountClicked(id))
+    },
+    onAddTransactionClick: () => {
+      console.log('transaction!')
+    },
+    onAddCategoryClick: () => {
+      console.log('category!')
+    },
+    onAddAccountClick: () => {
+      console.log('account!')
     }
   }
 }

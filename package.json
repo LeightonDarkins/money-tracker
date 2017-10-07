@@ -50,7 +50,7 @@
     "standard": "^10.0.3",
     "style-loader": "^0.18.2",
     "url-loader": "^0.6.2",
-    "webpack": "^2.0.0"
+    "webpack": "~2.7.0"
   },
   "jest": {
     "verbose": "true",

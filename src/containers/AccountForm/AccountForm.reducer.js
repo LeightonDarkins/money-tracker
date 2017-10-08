@@ -1,13 +1,15 @@
+import { types } from './AccountForm.actions'
+
 const initialState = { name: '', balance: 0 }
 
 const accountForm = (state = initialState, action) => {
   switch (action.type) {
-    case 'NAME_CHANGED':
+    case types.nameChanged:
       return Object.assign({}, state, {
         name: action.name
       })
 
-    case 'BALANCE_CHANGED':
+    case types.balanceChanged:
       return Object.assign({}, state, {
         balance: +action.balance
       })

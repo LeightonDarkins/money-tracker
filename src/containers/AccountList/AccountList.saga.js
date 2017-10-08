@@ -1,6 +1,6 @@
 import { put, call, takeLatest } from 'redux-saga/effects'
 import AccountApi from '../../apis/Account.api'
-import { fetchAccountsSucceeded } from './AccountList.actions'
+import { fetchAccountsSucceeded, types } from './AccountList.actions'
 import { apiError } from '../../common/common.actions'
 import { push } from 'react-router-redux'
 
@@ -23,8 +23,8 @@ function * addTransactionClicked (action) {
 
 function * accountListSaga () {
   yield takeLatest('FETCH_ACCOUNTS', fetchAccounts)
-  yield takeLatest('ACCOUNT_CLICKED', accountClicked)
-  yield takeLatest('ADD_TRANSACTION_CLICKED', addTransactionClicked)
+  yield takeLatest(types.accountClicked, accountClicked)
+  yield takeLatest(types.addTransactionClicked, addTransactionClicked)
 }
 
 export default accountListSaga

@@ -10,7 +10,6 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        <h1>Money Tracker</h1>
         <Route exact path='/' component={AccountPage} />
         <Route path='/categories' component={CategoryPage} />
         <Route path='/transactions' component={TransactionPage} />

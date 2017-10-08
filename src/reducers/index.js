@@ -6,7 +6,7 @@ import CategoryForm from '../containers/CategoryForm/CategoryForm.reducer'
 import CategoryList from '../containers/CategoryList/CategoryList.reducer'
 import TransactionForm from '../containers/TransactionForm/TransactionForm.reducer'
 
-const MoneyTracker = combineReducers({
+const Reducers = combineReducers({
   AccountList,
   AccountForm,
   CategoryForm,
@@ -15,4 +15,4 @@ const MoneyTracker = combineReducers({
   router: routerReducer
 })
 
-export default MoneyTracker
+export default Reducers

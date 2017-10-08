@@ -24,9 +24,23 @@ const AccountList = ({ accounts, onAccountClick, onAddCategoryClick, onAddAccoun
     </ul>)
   }
 
+  const accountBalance = () => {
+    const formatter = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD'
+    })
+
+    const balance = accounts.reduce((a, b) => a + b.balance, 0)
+
+    return formatter.format(balance)
+  }
+
   return (
     <div>
       <h2>Accounts</h2>
+      <div className='accounts-balance'>
+        Balance: { accountBalance() }
+      </div>
       {accountListElement()}
       <button className='account-list-action'
         onClick={() => onAddCategoryClick()} >Add Category</button>

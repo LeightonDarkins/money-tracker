@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import createSagaMiddleware from 'redux-saga'
-import MoneyTracker from './reducers'
+import Reducers from './reducers'
 import AccountFormSaga from './containers/AccountForm/AccountForm.saga'
 import AccountListSaga from './containers/AccountList/AccountList.saga'
 import CategoryFormSaga from './containers/CategoryForm/CategoryForm.saga'
@@ -20,7 +20,7 @@ const rMiddleware = routerMiddleware(history)
 
 const sagaMiddleware = createSagaMiddleware()
 
-const store = createStore(MoneyTracker,
+const store = createStore(Reducers,
   composeWithDevTools(applyMiddleware(sagaMiddleware, rMiddleware))
 )
 

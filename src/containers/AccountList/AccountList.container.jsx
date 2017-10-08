@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import AccountList from '../../components/AccountList/AccountList.component.jsx'
-import { accountClicked } from './AccountList.actions'
+import { accountClicked, addTransactionClicked } from './AccountList.actions'
 
 const mapStateToProps = state => {
   return {
@@ -14,7 +14,7 @@ const mapDispatchToProps = dispatch => {
       dispatch(accountClicked(id))
     },
     onAddTransactionClick: () => {
-      console.log('transaction!')
+      dispatch(addTransactionClicked())
     },
     onAddCategoryClick: () => {
       console.log('category!')

@@ -13,6 +13,7 @@ class App extends React.Component {
         <Route exact path='/' component={AccountPage} />
         <Route path='/categories' component={CategoryPage} />
         <Route path='/transactions' component={TransactionPage} />
+        <Route path='/add-transaction' component={TransactionPage} />
       </div>
     )
   }

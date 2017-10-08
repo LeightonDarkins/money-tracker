@@ -17,9 +17,14 @@ function * accountClicked (action) {
   yield put(push(`account/${action.id}`))
 }
 
+function * addTransactionClicked (action) {
+  yield put(push('add-transaction'))
+}
+
 function * accountListSaga () {
   yield takeLatest('FETCH_ACCOUNTS', fetchAccounts)
   yield takeLatest('ACCOUNT_CLICKED', accountClicked)
+  yield takeLatest('ADD_TRANSACTION_CLICKED', addTransactionClicked)
 }
 
 export default accountListSaga

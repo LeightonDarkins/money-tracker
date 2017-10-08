@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import './TransactionForm.css'
+import './TransactionForm.scss'
 
 const TransactionForm = ({
   amount,
@@ -13,7 +13,8 @@ const TransactionForm = ({
   account,
   onAccountChange,
   accounts,
-  onSubmitClick
+  onSubmitClick,
+  onCancelClick
 }) => {
   const categoryOptions = () => {
     return categories.map(category => (
@@ -28,7 +29,7 @@ const TransactionForm = ({
   }
 
   return (
-    <div>
+    <div className='transaction-form'>
       <h1>Create Transaction</h1>
       <div>
         <label>Amount</label>
@@ -54,9 +55,14 @@ const TransactionForm = ({
         </select>
       </div>
 
-      <button onClick={() => onSubmitClick({ amount, date, category, account })}>
-        Add Transaction
-      </button>
+      <div className='transaction-form-actions'>
+        <button className='confirm' onClick={() => onSubmitClick({ amount, date, category, account })}>
+          Done
+        </button>
+        <button className='cancel' onClick={() => onCancelClick()}>
+          Cancel
+        </button>
+      </div>
     </div>
   )
 }
@@ -72,7 +78,8 @@ TransactionForm.propTypes = {
   account: PropTypes.string.isRequired,
   onAccountChange: PropTypes.func.isRequired,
   accounts: PropTypes.array.isRequired,
-  onSubmitClick: PropTypes.func.isRequired
+  onSubmitClick: PropTypes.func.isRequired,
+  onCancelClick: PropTypes.func.isRequired
 }
 
 export default TransactionForm

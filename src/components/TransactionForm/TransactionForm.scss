@@ -1,0 +1,61 @@
+.transaction-form {
+  width: 100%;
+
+  label {
+    font-size: 13px;
+    display: block;
+    margin: 5px 0 5px 0;
+  }
+
+  input {
+    padding: 0 5px 0 5px;
+  }
+
+  input, select {
+    width: 100%;
+    font-size: 20px;
+    margin: 5px;
+    padding-left: 5px;
+  }
+
+  button, select, input {
+    height: 41px;
+  }
+}
+
+.transaction-form-actions {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  button {
+    width: 100%;
+    margin: 5px;
+  }
+
+  .confirm {
+    color: #fff;
+    background-color: #08B477;
+    font-size: 16px;
+    border: none;
+  }
+
+  .confirm:hover {
+    color: #eee;
+    cursor: pointer;
+    background-color: #51EBB4;
+  }
+
+  .cancel {
+    color: #fff;
+    background-color: #B42501;
+    font-size: 16px;
+    border: none;
+  }
+
+  .cancel:hover {
+    color: #eee;
+    cursor: pointer;
+    background-color: #EB6848;
+  }
+}

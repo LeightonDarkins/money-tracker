@@ -12,7 +12,7 @@ import CategoryFormSaga from './containers/CategoryForm/CategoryForm.saga'
 import CategoryListSaga from './containers/CategoryList/CategoryList.saga'
 import TransactionFormSaga from './containers/TransactionForm/TransactionForm.saga'
 import App from './containers/App/App.container.jsx'
-import createHistory from 'history/createBrowserHistory'
+import createHistory from 'history/createHashHistory'
 import { ConnectedRouter, routerMiddleware } from 'react-router-redux'
 
 const history = createHistory()

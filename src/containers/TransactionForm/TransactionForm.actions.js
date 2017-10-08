@@ -4,6 +4,7 @@ export const types = {
   accountChanged: 'TRANSACTION_ACCOUNT_CHANGED',
   categoryChanged: 'TRANSACTION_CATEGORY_CHANGED',
   formSubmitted: 'TRANSACTION_FORM_SUBMITTED',
+  formCancelled: 'TRANSACTION_FORM_CANCELLED',
   transactionFormFetchAccountsSucceeded: 'TRANSACTION_FORM_FETCH_ACCOUNTS_SUCCEEDED',
   transactionFormFetchCategoriesSucceeded: 'TRANSACTION_FORM_FETCH_CATEGORIES_SUCCEEDED'
 }
@@ -41,6 +42,10 @@ export const formSubmitted = (transactionDetails) => {
     type: types.formSubmitted,
     transactionDetails
   }
+}
+
+export const formCancelled = () => {
+  return { type: types.formCancelled }
 }
 
 export const transactionFormFetchAccountsSucceeded = (accounts) => {

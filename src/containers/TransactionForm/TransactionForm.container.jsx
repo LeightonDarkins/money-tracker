@@ -4,7 +4,8 @@ import {
   dateChanged,
   accountChanged,
   categoryChanged,
-  formSubmitted
+  formSubmitted,
+  formCancelled
 } from './TransactionForm.actions'
 import TransactionForm from '../../components/TransactionForm/TransactionForm.component.jsx'
 
@@ -23,6 +24,9 @@ const mapDispatchToProps = dispatch => {
   return {
     onSubmitClick: (accountDetails) => {
       dispatch(formSubmitted(accountDetails))
+    },
+    onCancelClick: () => {
+      dispatch(formCancelled())
     },
     onAmountChange: (event) => {
       dispatch(amountChanged(event.target.value))

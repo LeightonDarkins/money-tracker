@@ -7,6 +7,7 @@ import {
   transactionFormFetchAccountsSucceeded,
   transactionFormFetchCategoriesSucceeded
 } from './TransactionForm.actions'
+import { push } from 'react-router-redux'
 
 import { apiError } from '../../common/common.actions'
 
@@ -36,8 +37,13 @@ function * fetchAccounts (action) {
   }
 }
 
+function * cancel () {
+  yield put(push('/'))
+}
+
 function * createTransactionSaga () {
   yield takeLatest(transactionFormActionTypes.formSubmitted, createTransaction)
+  yield takeLatest(transactionFormActionTypes.formCancelled, cancel)
   yield takeLatest('TRANSACTION_FORM_FETCH_CATEGORIES', fetchCategories)
   yield takeLatest('TRANSACTION_FORM_FETCH_ACCOUNTS', fetchAccounts)
 }

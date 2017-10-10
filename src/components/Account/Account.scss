@@ -3,7 +3,7 @@
 .account-container {
   width: 100%;
   height: $default-element-height;
-  min-height: $default-element-height;
+  min-height: $default-account-element-height;
   margin: $default-spacing auto $default-spacing auto;
   border-bottom: 1px solid #ddd;
 
@@ -18,5 +18,10 @@
 
   .account-balance {
     float: right;
+  }
+
+  .account-opening-balance {
+    font-size: 13px;
+    color: #aaa;
   }
 }

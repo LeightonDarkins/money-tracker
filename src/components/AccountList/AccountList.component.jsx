@@ -16,7 +16,8 @@ const AccountList = ({ accounts, onAccountClick, onAddCategoryClick, onAddAccoun
         accounts.map(account => {
           return (<Account
             key={account.id}
-            balance={account.balance}
+            balance={0}
+            openingBalance={account.openingBalance}
             name={account.name}
             onAccountClick={() => onAccountClick(account.id)} />)
         })
@@ -32,7 +33,7 @@ const AccountList = ({ accounts, onAccountClick, onAddCategoryClick, onAddAccoun
 
     const balance = accounts.reduce((a, b) => a + b.balance, 0)
 
-    return formatter.format(balance)
+    return isNaN(balance) ? formatter.format(0) : formatter.format(balance)
   }
 
   return (
@@ -56,7 +57,7 @@ AccountList.propTypes = {
   accounts: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
-      balance: PropTypes.number.isRequired,
+      openingBalance: PropTypes.number,
       name: PropTypes.string.isRequired
     })
   ).isRequired,

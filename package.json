@@ -63,5 +63,8 @@
     "ignore": [
       "/dist/"
     ]
+  },
+  "devDependencies": {
+    "compression": "^1.7.1"
   }
 }

@@ -19,15 +19,23 @@ const TransactionForm = ({
   onTypeChange
 }) => {
   const categoryOptions = () => {
-    return categories.map(category => (
-      <option key={category.id} value={category.id}>{ category.name }</option>
-    ))
+    if (categories.length > 0) {
+      return categories.map(category => (
+        <option key={category.id} value={category.id}>{ category.name }</option>
+      ))
+    } else {
+      return (<option disabled>No Categories Available</option>)
+    }
   }
 
   const accountOptions = () => {
-    return accounts.map(account => (
-      <option key={account.id} value={account.id}>{ account.name }</option>
-    ))
+    if (accounts.length > 0) {
+      return accounts.map(account => (
+        <option key={account.id} value={account.id}>{ account.name }</option>
+      ))
+    } else {
+      return (<option disabled>No Accounts Available</option>)
+    }
   }
 
   const onInputFocus = (e) => {

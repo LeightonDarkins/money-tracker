@@ -2,6 +2,8 @@ import { types } from './TransactionForm.actions'
 
 const initialState = { amount: 0, date: '', category: '', account: '', accounts: [], categories: [], transactionType: 'expense' }
 
+const hasContents = (array) => array.length > 0
+
 const categoryForm = (state = initialState, action) => {
   switch (action.type) {
     case types.amountChanged:
@@ -30,12 +32,24 @@ const categoryForm = (state = initialState, action) => {
       })
 
     case types.transactionFormFetchAccountsSucceeded:
+      if (hasContents(action.accounts)) {
+        return Object.assign({}, state, {
+          account: action.accounts[0].id,
+          accounts: action.accounts
+        })
+      }
+
       return Object.assign({}, state, {
-        account: action.accounts[0].id,
         accounts: action.accounts
       })
 
     case types.transactionFormFetchCategoriesSucceeded:
+      if (hasContents(action.categories)) {
+        return Object.assign({}, state, {
+          categories: action.categories
+        })
+      }
+
       return Object.assign({}, state, {
         category: action.categories[0].id,
         categories: action.categories

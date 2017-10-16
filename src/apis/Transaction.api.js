@@ -5,6 +5,10 @@ const url = generateUrl('transaction')
 
 export default {
   createTransaction: (transactionDetails) => {
+    if (transactionDetails.transactionType === 'expense') {
+      transactionDetails.amount = -transactionDetails.amount
+    }
+
     return axios.request({
       url,
       method: 'post',

@@ -5,7 +5,8 @@ import CategoryApi from '../../apis/Category.api'
 import {
   types as transactionFormActionTypes,
   transactionFormFetchAccountsSucceeded,
-  transactionFormFetchCategoriesSucceeded
+  transactionFormFetchCategoriesSucceeded,
+  clearTransactionForm
 } from './TransactionForm.actions'
 import { push } from 'react-router-redux'
 
@@ -14,6 +15,8 @@ import { apiError } from '../../common/common.actions'
 function * createTransaction (action) {
   try {
     yield call(TransactionApi.createTransaction, action.transactionDetails)
+    yield put(clearTransactionForm())
+    yield put(push('/'))
   } catch (error) {
     yield put(apiError(error))
   }
@@ -38,6 +41,7 @@ function * fetchAccounts (action) {
 }
 
 function * cancel () {
+  yield put(clearTransactionForm())
   yield put(push('/'))
 }
 

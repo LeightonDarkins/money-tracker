@@ -16,7 +16,7 @@ const AccountList = ({ accounts, onAccountClick, onAddCategoryClick, onAddAccoun
         accounts.map(account => {
           return (<Account
             key={account.id}
-            balance={0}
+            balance={account.balance}
             openingBalance={account.openingBalance}
             name={account.name}
             onAccountClick={() => onAccountClick(account.id)} />)
@@ -31,7 +31,8 @@ const AccountList = ({ accounts, onAccountClick, onAddCategoryClick, onAddAccoun
       currency: 'USD'
     })
 
-    const balance = accounts.reduce((a, b) => a + b.balance, 0)
+    let balance = accounts.reduce((a, b) => a + b.balance, 0)
+    balance /= 100
 
     return isNaN(balance) ? formatter.format(0) : formatter.format(balance)
   }

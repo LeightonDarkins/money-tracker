@@ -5,7 +5,8 @@ import {
   accountChanged,
   categoryChanged,
   formSubmitted,
-  formCancelled
+  formCancelled,
+  typeChanged
 } from './TransactionForm.actions'
 import TransactionForm from '../../components/TransactionForm/TransactionForm.component.jsx'
 
@@ -16,20 +17,21 @@ const mapStateToProps = (state, ownProps) => {
     category: state.TransactionForm.category,
     categories: state.TransactionForm.categories,
     account: state.TransactionForm.account,
-    accounts: state.TransactionForm.accounts
+    accounts: state.TransactionForm.accounts,
+    transactionType: state.TransactionForm.transactionType
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    onSubmitClick: (accountDetails) => {
-      dispatch(formSubmitted(accountDetails))
+    onSubmitClick: (transactionDetails) => {
+      dispatch(formSubmitted(transactionDetails))
     },
     onCancelClick: () => {
       dispatch(formCancelled())
     },
-    onAmountChange: (event) => {
-      dispatch(amountChanged(event.target.value))
+    onAmountChange: (amount) => {
+      dispatch(amountChanged(amount))
     },
     onDateChange: (event) => {
       dispatch(dateChanged(event.target.value))
@@ -39,6 +41,9 @@ const mapDispatchToProps = dispatch => {
     },
     onCategoryChange: (event) => {
       dispatch(categoryChanged(event.target.value))
+    },
+    onTypeChange: (event) => {
+      dispatch(typeChanged(event.target.value))
     }
   }
 }

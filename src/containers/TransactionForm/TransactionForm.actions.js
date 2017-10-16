@@ -5,8 +5,10 @@ export const types = {
   categoryChanged: 'TRANSACTION_CATEGORY_CHANGED',
   formSubmitted: 'TRANSACTION_FORM_SUBMITTED',
   formCancelled: 'TRANSACTION_FORM_CANCELLED',
+  typeChanged: 'TRANSACTION_TYPE_CHANGED',
   transactionFormFetchAccountsSucceeded: 'TRANSACTION_FORM_FETCH_ACCOUNTS_SUCCEEDED',
-  transactionFormFetchCategoriesSucceeded: 'TRANSACTION_FORM_FETCH_CATEGORIES_SUCCEEDED'
+  transactionFormFetchCategoriesSucceeded: 'TRANSACTION_FORM_FETCH_CATEGORIES_SUCCEEDED',
+  clearTransactionForm: 'CLEAR_TRANSACTION_FORM'
 }
 
 export const amountChanged = (amount) => {
@@ -48,10 +50,21 @@ export const formCancelled = () => {
   return { type: types.formCancelled }
 }
 
+export const typeChanged = (transactionType) => {
+  return {
+    type: types.typeChanged,
+    transactionType
+  }
+}
+
 export const transactionFormFetchAccountsSucceeded = (accounts) => {
   return { type: types.transactionFormFetchAccountsSucceeded, accounts }
 }
 
 export const transactionFormFetchCategoriesSucceeded = (categories) => {
   return { type: types.transactionFormFetchCategoriesSucceeded, categories }
+}
+
+export const clearTransactionForm = () => {
+  return { type: types.clearTransactionForm }
 }

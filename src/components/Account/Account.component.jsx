@@ -10,6 +10,8 @@ const Account = ({ openingBalance, balance, name, onAccountClick }) => {
       currency: 'USD'
     })
 
+    number /= 100
+
     return isNaN(number) ? formatter.format(0) : formatter.format(number)
   }
 

@@ -14,7 +14,9 @@ const TransactionForm = ({
   onAccountChange,
   accounts,
   onSubmitClick,
-  onCancelClick
+  onCancelClick,
+  transactionType,
+  onTypeChange
 }) => {
   const categoryOptions = () => {
     return categories.map(category => (
@@ -28,12 +30,34 @@ const TransactionForm = ({
     ))
   }
 
+  const onInputFocus = (e) => {
+    e.target.select()
+  }
+
+  const localAmountChange = (e) => {
+    const numberToSend = Number((e.target.value * 100).toFixed(0))
+
+    return isNaN(numberToSend) ? null : onAmountChange(numberToSend)
+  }
+
   return (
     <div className='transaction-form'>
       <h1>Create Transaction</h1>
       <div>
+        <div>
+          <label>Type</label>
+          <select value={transactionType} onChange={onTypeChange}>
+            <option value='expense'>Expense</option>
+            <option value='income'>Income</option>
+          </select>
+        </div>
         <label>Amount</label>
-        <input value={amount} onChange={onAmountChange} />
+        <div className='mt-number-input-container'>
+          <input type='number'
+            value={amount / 100}
+            onChange={localAmountChange}
+            onFocus={onInputFocus} />
+        </div>
       </div>
 
       <div>
@@ -43,24 +67,24 @@ const TransactionForm = ({
 
       <div>
         <label>Category</label>
-        <select onChange={onCategoryChange}>
+        <select value={category} onChange={onCategoryChange}>
           { categoryOptions() }
         </select>
       </div>
 
       <div>
         <label>Account</label>
-        <select onChange={onAccountChange}>
+        <select value={account} onChange={onAccountChange}>
           { accountOptions() }
         </select>
       </div>
 
       <div className='transaction-form-actions'>
-        <button className='confirm' onClick={() => onSubmitClick({ amount, date, category, account })}>
-          Done
-        </button>
         <button className='cancel' onClick={() => onCancelClick()}>
           Cancel
+        </button>
+        <button className='confirm' onClick={() => onSubmitClick({ amount, date, category, account, transactionType })}>
+          Done
         </button>
       </div>
     </div>
@@ -79,7 +103,9 @@ TransactionForm.propTypes = {
   onAccountChange: PropTypes.func.isRequired,
   accounts: PropTypes.array.isRequired,
   onSubmitClick: PropTypes.func.isRequired,
-  onCancelClick: PropTypes.func.isRequired
+  onCancelClick: PropTypes.func.isRequired,
+  transactionType: PropTypes.string.isRequired,
+  onTypeChange: PropTypes.func.isRequired
 }
 
 export default TransactionForm

@@ -33,8 +33,8 @@ const mapDispatchToProps = dispatch => {
     onAmountChange: (amount) => {
       dispatch(amountChanged(amount))
     },
-    onDateChange: (event) => {
-      dispatch(dateChanged(event.target.value))
+    onDateChange: (date) => {
+      dispatch(dateChanged(date))
     },
     onAccountChange: (event) => {
       dispatch(accountChanged(event.target.value))

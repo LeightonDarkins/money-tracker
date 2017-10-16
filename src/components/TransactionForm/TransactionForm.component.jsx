@@ -1,5 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import DatePicker from 'react-datepicker'
+
 import './TransactionForm.scss'
 
 const TransactionForm = ({
@@ -16,7 +18,8 @@ const TransactionForm = ({
   onSubmitClick,
   onCancelClick,
   transactionType,
-  onTypeChange
+  onTypeChange,
+  startDate
 }) => {
   const categoryOptions = () => {
     if (categories.length > 0) {
@@ -70,7 +73,10 @@ const TransactionForm = ({
 
       <div>
         <label>Date</label>
-        <input value={date} onChange={onDateChange} />
+        <DatePicker
+          selected={date}
+          onChange={onDateChange}
+          dateFormat='DD/MM/YYYY' />
       </div>
 
       <div>

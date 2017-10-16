@@ -1,12 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import TransactionForm from '../TransactionForm/TransactionForm.container.jsx'
-import { fetchCategories, fetchAccounts } from './TransactionPage.actions'
+import { fetchCategories, fetchAccounts, fetchDefaultDate } from './TransactionPage.actions'
 
 class TransactionPage extends React.Component {
   componentDidMount () {
     this.props.fetchCategories()
     this.props.fetchAccounts()
+    this.props.setDefaultDate()
   }
 
   render () {
@@ -29,6 +30,9 @@ const mapDispatchToProps = dispatch => {
     },
     fetchAccounts: () => {
       dispatch(fetchAccounts())
+    },
+    setDefaultDate: () => {
+      dispatch(fetchDefaultDate())
     }
   }
 }

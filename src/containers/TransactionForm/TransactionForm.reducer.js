@@ -46,17 +46,22 @@ const categoryForm = (state = initialState, action) => {
     case types.transactionFormFetchCategoriesSucceeded:
       if (hasContents(action.categories)) {
         return Object.assign({}, state, {
+          category: action.categories[0].id,
           categories: action.categories
         })
       }
 
       return Object.assign({}, state, {
-        category: action.categories[0].id,
         categories: action.categories
       })
 
     case types.clearTransactionForm:
       return Object.assign({}, state, initialState)
+
+    case types.returnDefaultDate:
+      return Object.assign({}, state, {
+        date: action.date
+      })
 
     default:
       return state

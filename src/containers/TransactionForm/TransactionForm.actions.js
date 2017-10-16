@@ -8,7 +8,8 @@ export const types = {
   typeChanged: 'TRANSACTION_TYPE_CHANGED',
   transactionFormFetchAccountsSucceeded: 'TRANSACTION_FORM_FETCH_ACCOUNTS_SUCCEEDED',
   transactionFormFetchCategoriesSucceeded: 'TRANSACTION_FORM_FETCH_CATEGORIES_SUCCEEDED',
-  clearTransactionForm: 'CLEAR_TRANSACTION_FORM'
+  clearTransactionForm: 'CLEAR_TRANSACTION_FORM',
+  returnDefaultDate: 'RETURN_DEFAULT_DATE'
 }
 
 export const amountChanged = (amount) => {
@@ -54,6 +55,13 @@ export const typeChanged = (transactionType) => {
   return {
     type: types.typeChanged,
     transactionType
+  }
+}
+
+export const returnDefaultDate = (date) => {
+  return {
+    type: types.returnDefaultDate,
+    date
   }
 }
 

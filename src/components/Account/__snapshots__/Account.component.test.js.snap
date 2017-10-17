@@ -1,0 +1,22 @@
+exports[`Account Snapshots renders correctly 1`] = `
+<li
+  className="account-list-item"
+  onClick={[Function]}>
+  <div
+    className="account-container">
+    <span
+      className="account-element account-name">
+      Test Account Name
+    </span>
+    <span
+      className="account-element account-balance">
+      $5.00
+    </span>
+    <div
+      className="account-element account-opening-balance">
+      Opening Balance: 
+      $10.00
+    </div>
+  </div>
+</li>
+`;

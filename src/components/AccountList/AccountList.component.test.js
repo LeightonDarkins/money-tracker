@@ -2,11 +2,37 @@
 
 import React from 'react'
 import { shallow } from 'enzyme'
+import renderer from 'react-test-renderer'
 import AccountList from './AccountList.component'
 
 describe('AccountList', () => {
-  describe('rendering', () => {
-    it('in progress...', () => {})
+  describe('Snapshots', () => {
+    it('should render with a spinner when loading', () => {
+      const accountList = renderer.create(<AccountList accounts={[]} onAccountClick={(y) => y} isLoading />).toJSON()
+      expect(accountList).toMatchSnapshot()
+    })
+
+    it('should render with a placeholder when no accounts are present', () => {
+      const tree = renderer.create(<AccountList accounts={[]} onAccountClick={(y) => y} />).toJSON()
+      expect(tree).toMatchSnapshot()
+    })
+
+    it('should render a list of accounts', () => {
+      let testAccounts = [{
+        id: 'testAccount1',
+        name: 'testAccount1',
+        balance: 500,
+        openingBalance: 0
+      }]
+
+      const tree = renderer.create(
+        <AccountList
+          accounts={testAccounts}
+          onAccountClick={(y) => y} />
+      ).toJSON()
+
+      expect(tree).toMatchSnapshot()
+    })
   })
 
   describe('accountBalanceAsCurrency()', () => {

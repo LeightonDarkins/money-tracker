@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Account from '../Account/Account.component.jsx'
+import currency from '../../common/currency'
 import './AccountList.scss'
 
 class AccountList extends Component {
@@ -12,36 +13,36 @@ class AccountList extends Component {
   }
 
   accountListElement () {
-    if (this.props.accounts.length === 0) {
+    if (this.props.isLoading) {
       return (<div className='account-list-spinner-container'>
         <i className='fa fa-circle-o-notch fa-spin fa-2x account-list-spinner' aria-hidden='true' />
       </div>)
+    }
+
+    if (this.props.accounts.length === 0) {
+      return (<ul className='account-list'>
+        <li>No Account Available</li>
+      </ul>)
     }
 
     return (<ul className='account-list'>
       {
         this.props.accounts.map(account => {
           return (<Account
-            key={this.props.account.id}
-            balance={this.props.account.balance}
-            openingBalance={this.props.account.openingBalance}
-            name={this.props.account.name}
-            onAccountClick={() => this.props.onAccountClick(this.props.account.id)} />)
+            key={account.id}
+            balance={account.balance}
+            openingBalance={account.openingBalance}
+            name={account.name}
+            onAccountClick={() => this.props.onAccountClick(account.id)} />)
         })
       }
     </ul>)
   }
 
   accountBalanceAsCurrency (accounts) {
-    const formatter = new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD'
-    })
-
     let balance = accounts.reduce((a, b) => a + b.balance, 0)
-    balance /= 100
 
-    return isNaN(balance) ? formatter.format(0) : formatter.format(balance)
+    return currency.numberAsCurrency(balance)
   }
 
   render () {

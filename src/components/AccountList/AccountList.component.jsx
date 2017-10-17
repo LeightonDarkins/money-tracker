@@ -21,7 +21,7 @@ class AccountList extends Component {
 
     if (this.props.accounts.length === 0) {
       return (<ul className='account-list'>
-        <li>No Account Available</li>
+        <li>No Accounts Available</li>
       </ul>)
     }
 

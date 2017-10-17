@@ -1,5 +1,6 @@
 export const types = {
   accountClicked: 'ACCOUNT_CLICKED',
+  fetchAccountsStarted: 'FETCH_ACCOUNTS_STARTED',
   fetchAccountsSucceeded: 'FETCH_ACCOUNTS_SUCCEEDED',
   fetchAccountsFailed: 'FETCH_ACCOUNTS_FAILED',
   addTransactionClicked: 'ADD_TRANSACTION_CLICKED'
@@ -7,6 +8,10 @@ export const types = {
 
 export const accountClicked = (id) => {
   return { type: types.accountClicked, id }
+}
+
+export const fetchAccountsStarted = () => {
+  return { type: types.fetchAccountsStarted }
 }
 
 export const fetchAccountsSucceeded = (accounts) => {

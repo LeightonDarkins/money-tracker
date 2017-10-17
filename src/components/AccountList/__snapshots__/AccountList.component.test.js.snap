@@ -62,7 +62,7 @@ exports[`AccountList Snapshots should render with a placeholder when no accounts
   <ul
     className="account-list">
     <li>
-      No Account Available
+      No Accounts Available
     </li>
   </ul>
   <button

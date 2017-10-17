@@ -1,9 +1,18 @@
 import { types } from './AccountList.actions'
 
-const accounts = (state = [], action) => {
+const initialState = { accounts: [], isLoading: false }
+
+const accounts = (state = initialState, action) => {
   switch (action.type) {
     case types.fetchAccountsSucceeded:
-      return action.accounts
+      return Object.assign({}, state, {
+        accounts: action.accounts,
+        isLoading: false
+      })
+    case types.fetchAccountsStarted:
+      return Object.assign({}, state, {
+        isLoading: true
+      })
     default:
       return state
   }

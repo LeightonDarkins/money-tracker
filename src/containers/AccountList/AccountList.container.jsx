@@ -4,7 +4,8 @@ import { accountClicked, addTransactionClicked } from './AccountList.actions'
 
 const mapStateToProps = state => {
   return {
-    accounts: state.AccountList
+    accounts: state.AccountList.accounts,
+    isLoading: state.AccountList.isLoading
   }
 }
 

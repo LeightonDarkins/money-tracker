@@ -1,11 +1,12 @@
 import { put, call, takeLatest } from 'redux-saga/effects'
 import AccountApi from '../../apis/Account.api'
-import { fetchAccountsSucceeded, types } from './AccountList.actions'
+import { fetchAccountsSucceeded, fetchAccountsStarted, types } from './AccountList.actions'
 import { apiError } from '../../common/common.actions'
 import { push } from 'react-router-redux'
 
-function * fetchAccounts (action) {
+function * fetchAccounts () {
   try {
+    yield put(fetchAccountsStarted())
     const accounts = yield call(AccountApi.fetchAccounts)
     yield put(fetchAccountsSucceeded(accounts))
   } catch (error) {
@@ -17,7 +18,7 @@ function * accountClicked (action) {
   yield put(push(`account/${action.id}`))
 }
 
-function * addTransactionClicked (action) {
+function * addTransactionClicked () {
   yield put(push('add-transaction'))
 }
 

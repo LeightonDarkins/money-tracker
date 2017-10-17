@@ -1,11 +1,18 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Account from '../Account/Account.component.jsx'
 import './AccountList.scss'
 
-const AccountList = ({ accounts, onAccountClick, onAddCategoryClick, onAddAccountClick, onAddTransactionClick }) => {
-  const accountListElement = () => {
-    if (accounts.length === 0) {
+class AccountList extends Component {
+  constructor (props) {
+    super(props)
+
+    this.accountListElement = this.accountListElement.bind(this)
+    this.accountBalanceAsCurrency = this.accountBalanceAsCurrency.bind(this)
+  }
+
+  accountListElement () {
+    if (this.props.accounts.length === 0) {
       return (<div className='account-list-spinner-container'>
         <i className='fa fa-circle-o-notch fa-spin fa-2x account-list-spinner' aria-hidden='true' />
       </div>)
@@ -13,19 +20,19 @@ const AccountList = ({ accounts, onAccountClick, onAddCategoryClick, onAddAccoun
 
     return (<ul className='account-list'>
       {
-        accounts.map(account => {
+        this.props.accounts.map(account => {
           return (<Account
-            key={account.id}
-            balance={account.balance}
-            openingBalance={account.openingBalance}
-            name={account.name}
-            onAccountClick={() => onAccountClick(account.id)} />)
+            key={this.props.account.id}
+            balance={this.props.account.balance}
+            openingBalance={this.props.account.openingBalance}
+            name={this.props.account.name}
+            onAccountClick={() => this.props.onAccountClick(this.props.account.id)} />)
         })
       }
     </ul>)
   }
 
-  const accountBalance = () => {
+  accountBalanceAsCurrency (accounts) {
     const formatter = new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD'
@@ -37,21 +44,23 @@ const AccountList = ({ accounts, onAccountClick, onAddCategoryClick, onAddAccoun
     return isNaN(balance) ? formatter.format(0) : formatter.format(balance)
   }
 
-  return (
-    <div>
-      <h2>Accounts</h2>
-      <div className='accounts-balance'>
-        Balance: { accountBalance() }
+  render () {
+    return (
+      <div>
+        <h2>Accounts</h2>
+        <div className='accounts-balance'>
+          Balance: { this.accountBalanceAsCurrency(this.props.accounts) }
+        </div>
+        {this.accountListElement()}
+        <button className='account-list-action'
+          onClick={() => this.props.onAddCategoryClick()} >Add Category</button>
+        <button className='account-list-action'
+          onClick={() => this.props.onAddAccountClick()} >Add Account</button>
+        <button className='account-list-action'
+          onClick={() => this.props.onAddTransactionClick()} >Add Transaction</button>
       </div>
-      {accountListElement()}
-      <button className='account-list-action'
-        onClick={() => onAddCategoryClick()} >Add Category</button>
-      <button className='account-list-action'
-        onClick={() => onAddAccountClick()} >Add Account</button>
-      <button className='account-list-action'
-        onClick={() => onAddTransactionClick()} >Add Transaction</button>
-    </div>
-  )
+    )
+  }
 }
 
 AccountList.propTypes = {

@@ -53,12 +53,12 @@ class AccountList extends Component {
           Balance: { this.accountBalanceAsCurrency(this.props.accounts) }
         </div>
         {this.accountListElement()}
-        <button className='account-list-action'
-          onClick={() => this.props.onAddCategoryClick()} >Add Category</button>
-        <button className='account-list-action'
-          onClick={() => this.props.onAddAccountClick()} >Add Account</button>
-        <button className='account-list-action'
-          onClick={() => this.props.onAddTransactionClick()} >Add Transaction</button>
+        <button id='mt-add-category' className='account-list-action'
+          onClick={this.props.onAddCategoryClick} >Add Category</button>
+        <button id='mt-add-account' className='account-list-action'
+          onClick={this.props.onAddAccountClick} >Add Account</button>
+        <button id='mt-add-transaction' className='account-list-action'
+          onClick={this.props.onAddTransactionClick} >Add Transaction</button>
       </div>
     )
   }
@@ -72,7 +72,10 @@ AccountList.propTypes = {
       name: PropTypes.string.isRequired
     })
   ).isRequired,
-  onAccountClick: PropTypes.func.isRequired
+  onAccountClick: PropTypes.func.isRequired,
+  onAddCategoryClick: PropTypes.func.isRequired,
+  onAddTransactionClick: PropTypes.func.isRequired,
+  onAddAccountClick: PropTypes.func.isRequired
 }
 
 export default AccountList

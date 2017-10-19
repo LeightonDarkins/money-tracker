@@ -6,8 +6,8 @@
   "repository": "https://github.com/LeightonDarkins/money-tracker",
   "scripts": {
     "start": "webpack && node server.js",
-    "start-remote": "node local-server.js",
-    "start-local": "node local-server.js --local",
+    "remote": "node local-server.js",
+    "local": "node local-server.js --local",
     "watch": "webpack --watch",
     "test": "npm run lint && jest",
     "test-watch": "jest --watch",

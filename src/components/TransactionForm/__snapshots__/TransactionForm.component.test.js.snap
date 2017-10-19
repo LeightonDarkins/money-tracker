@@ -1,0 +1,225 @@
+exports[`TransactionForm Snapshots should render correctly in default state 1`] = `
+<div
+  className="transaction-form">
+  <h1>
+    Create Transaction
+  </h1>
+  <div>
+    <div>
+      <label>
+        Type
+      </label>
+      <select
+        className="mt-type-select"
+        onChange={[Function]}
+        value="expense">
+        <option
+          value="expense">
+          Expense
+        </option>
+        <option
+          value="income">
+          Income
+        </option>
+      </select>
+    </div>
+    <label>
+      Amount
+    </label>
+    <div
+      className="mt-number-input-container">
+      <input
+        onChange={[Function]}
+        onFocus={[Function]}
+        type="number"
+        value={0} />
+    </div>
+  </div>
+  <div>
+    <label>
+      Date
+    </label>
+    <div>
+      <div
+        className="react-datepicker-wrapper">
+        <div
+          className="react-datepicker__input-container">
+          <input
+            autoComplete={undefined}
+            autoFocus={undefined}
+            className="mt-datepicker"
+            disabled={false}
+            id={undefined}
+            name={undefined}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            placeholder={undefined}
+            readOnly={undefined}
+            required={undefined}
+            tabIndex={undefined}
+            title={undefined}
+            type="text"
+            value="19/10/2017" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <label>
+      Category
+    </label>
+    <select
+      className="mt-category-select"
+      onChange={[Function]}
+      value="category-1">
+      <option
+        value="category-1" />
+      <option
+        value="category-2" />
+    </select>
+  </div>
+  <div>
+    <label>
+      Account
+    </label>
+    <select
+      className="mt-account-select"
+      onChange={[Function]}
+      value="account-1">
+      <option
+        value="account-1" />
+      <option
+        value="account-2" />
+    </select>
+  </div>
+  <div
+    className="transaction-form-actions">
+    <button
+      className="cancel"
+      onClick={[Function]}>
+      Cancel
+    </button>
+    <button
+      className="confirm"
+      onClick={[Function]}>
+      Done
+    </button>
+  </div>
+</div>
+`;
+
+exports[`TransactionForm Snapshots should render placeholders when data is missing 1`] = `
+<div
+  className="transaction-form">
+  <h1>
+    Create Transaction
+  </h1>
+  <div>
+    <div>
+      <label>
+        Type
+      </label>
+      <select
+        className="mt-type-select"
+        onChange={[Function]}
+        value="expense">
+        <option
+          value="expense">
+          Expense
+        </option>
+        <option
+          value="income">
+          Income
+        </option>
+      </select>
+    </div>
+    <label>
+      Amount
+    </label>
+    <div
+      className="mt-number-input-container">
+      <input
+        onChange={[Function]}
+        onFocus={[Function]}
+        type="number"
+        value={0} />
+    </div>
+  </div>
+  <div>
+    <label>
+      Date
+    </label>
+    <div>
+      <div
+        className="react-datepicker-wrapper">
+        <div
+          className="react-datepicker__input-container">
+          <input
+            autoComplete={undefined}
+            autoFocus={undefined}
+            className="mt-datepicker"
+            disabled={false}
+            id={undefined}
+            name={undefined}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            placeholder={undefined}
+            readOnly={undefined}
+            required={undefined}
+            tabIndex={undefined}
+            title={undefined}
+            type="text"
+            value="19/10/2017" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <label>
+      Category
+    </label>
+    <select
+      className="mt-category-select"
+      onChange={[Function]}
+      value="category-1">
+      <option
+        disabled={true}>
+        No Categories Available
+      </option>
+    </select>
+  </div>
+  <div>
+    <label>
+      Account
+    </label>
+    <select
+      className="mt-account-select"
+      onChange={[Function]}
+      value="account-1">
+      <option
+        disabled={true}>
+        No Accounts Available
+      </option>
+    </select>
+  </div>
+  <div
+    className="transaction-form-actions">
+    <button
+      className="cancel"
+      onClick={[Function]}>
+      Cancel
+    </button>
+    <button
+      className="confirm"
+      onClick={[Function]}>
+      Done
+    </button>
+  </div>
+</div>
+`;

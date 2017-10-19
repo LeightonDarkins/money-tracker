@@ -57,7 +57,7 @@ const TransactionForm = ({
       <div>
         <div>
           <label>Type</label>
-          <select value={transactionType} onChange={onTypeChange}>
+          <select className='mt-type-select' value={transactionType} onChange={onTypeChange}>
             <option value='expense'>Expense</option>
             <option value='income'>Income</option>
           </select>
@@ -74,6 +74,7 @@ const TransactionForm = ({
       <div>
         <label>Date</label>
         <DatePicker
+          className='mt-datepicker'
           selected={date}
           onChange={onDateChange}
           dateFormat='DD/MM/YYYY' />
@@ -81,14 +82,14 @@ const TransactionForm = ({
 
       <div>
         <label>Category</label>
-        <select value={category} onChange={onCategoryChange}>
+        <select className='mt-category-select' value={category} onChange={onCategoryChange}>
           { categoryOptions() }
         </select>
       </div>
 
       <div>
         <label>Account</label>
-        <select value={account} onChange={onAccountChange}>
+        <select className='mt-account-select' value={account} onChange={onAccountChange}>
           { accountOptions() }
         </select>
       </div>
@@ -108,7 +109,7 @@ const TransactionForm = ({
 TransactionForm.propTypes = {
   amount: PropTypes.number.isRequired,
   onAmountChange: PropTypes.func.isRequired,
-  date: PropTypes.string.isRequired,
+  date: PropTypes.object.isRequired,
   onDateChange: PropTypes.func.isRequired,
   category: PropTypes.string.isRequired,
   onCategoryChange: PropTypes.func.isRequired,

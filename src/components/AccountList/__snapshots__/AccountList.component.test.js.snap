@@ -33,16 +33,19 @@ exports[`AccountList Snapshots should render a list of accounts 1`] = `
   </ul>
   <button
     className="account-list-action"
+    id="mt-add-category"
     onClick={[Function]}>
     Add Category
   </button>
   <button
     className="account-list-action"
+    id="mt-add-account"
     onClick={[Function]}>
     Add Account
   </button>
   <button
     className="account-list-action"
+    id="mt-add-transaction"
     onClick={[Function]}>
     Add Transaction
   </button>
@@ -67,16 +70,19 @@ exports[`AccountList Snapshots should render with a placeholder when no accounts
   </ul>
   <button
     className="account-list-action"
+    id="mt-add-category"
     onClick={[Function]}>
     Add Category
   </button>
   <button
     className="account-list-action"
+    id="mt-add-account"
     onClick={[Function]}>
     Add Account
   </button>
   <button
     className="account-list-action"
+    id="mt-add-transaction"
     onClick={[Function]}>
     Add Transaction
   </button>
@@ -101,16 +107,19 @@ exports[`AccountList Snapshots should render with a spinner when loading 1`] = `
   </div>
   <button
     className="account-list-action"
+    id="mt-add-category"
     onClick={[Function]}>
     Add Category
   </button>
   <button
     className="account-list-action"
+    id="mt-add-account"
     onClick={[Function]}>
     Add Account
   </button>
   <button
     className="account-list-action"
+    id="mt-add-transaction"
     onClick={[Function]}>
     Add Transaction
   </button>

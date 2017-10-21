@@ -1,5 +1,4 @@
 import { put, call, takeLatest } from 'redux-saga/effects'
-import moment from 'moment'
 
 import TransactionApi from '../../apis/Transaction.api'
 import AccountApi from '../../apis/Account.api'
@@ -8,8 +7,7 @@ import {
   types as transactionFormActionTypes,
   transactionFormFetchAccountsSucceeded,
   transactionFormFetchCategoriesSucceeded,
-  clearTransactionForm,
-  returnDefaultDate
+  clearTransactionForm
 } from './TransactionForm.actions'
 import { push } from 'react-router-redux'
 
@@ -43,10 +41,6 @@ function * fetchAccounts (action) {
   }
 }
 
-function * fetchDefaultDate (action) {
-  yield (put(returnDefaultDate(moment())))
-}
-
 function * cancel () {
   yield put(clearTransactionForm())
   yield put(push('/'))
@@ -57,7 +51,6 @@ function * createTransactionSaga () {
   yield takeLatest(transactionFormActionTypes.formCancelled, cancel)
   yield takeLatest('TRANSACTION_FORM_FETCH_CATEGORIES', fetchCategories)
   yield takeLatest('TRANSACTION_FORM_FETCH_ACCOUNTS', fetchAccounts)
-  yield takeLatest('TRANSACTION_FORM_FETCH_DEFAULT_DATE', fetchDefaultDate)
 }
 
 export default createTransactionSaga

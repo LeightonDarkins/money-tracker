@@ -1,7 +1,7 @@
 /* global describe, it, expect, jest, beforeEach, afterEach */
 
 import React from 'react'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import renderer from 'react-test-renderer'
 import TransactionForm from './TransactionForm.component'
 import moment from 'moment'
@@ -25,7 +25,9 @@ const defaultProps = {
   onCancelClick: th.empty,
   transactionType: 'expense',
   onTypeChange: th.empty,
-  startDate: testDate
+  startDate: testDate,
+  fetchCategories: th.empty,
+  fetchAccounts: th.empty
 }
 
 const mockProps = (props) => {
@@ -38,6 +40,8 @@ const mockProps = (props) => {
   mockedProps.onSubmitClick = jest.fn()
   mockedProps.onCancelClick = jest.fn()
   mockedProps.onTypeChange = jest.fn()
+  mockedProps.fetchCategories = jest.fn()
+  mockedProps.fetchAccounts = jest.fn()
 
   return mockedProps
 }
@@ -50,6 +54,8 @@ const resetMocks = (props) => {
   props.onSubmitClick.mockReset()
   props.onCancelClick.mockReset()
   props.onTypeChange.mockReset()
+  props.fetchCategories.mockReset()
+  props.fetchAccounts.mockReset()
 }
 
 describe('TransactionForm', () => {
@@ -67,6 +73,16 @@ describe('TransactionForm', () => {
         accounts={[]} />)
 
       expect(transactionForm).toMatchSnapshot()
+    })
+  })
+
+  describe('Mount', () => {
+    it('calls fetchAccounts and fetchCategories when rendered', () => {
+      const mockedProps = mockProps(defaultProps)
+      mount(<TransactionForm {...mockedProps} />)
+
+      expect(mockedProps.fetchAccounts).toBeCalled()
+      expect(mockedProps.fetchCategories).toBeCalled()
     })
   })
 

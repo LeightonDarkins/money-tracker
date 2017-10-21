@@ -6,7 +6,9 @@ import {
   categoryChanged,
   formSubmitted,
   formCancelled,
-  typeChanged
+  typeChanged,
+  fetchCategories,
+  fetchAccounts
 } from './TransactionForm.actions'
 import TransactionForm from '../../components/TransactionForm/TransactionForm.component.jsx'
 
@@ -44,6 +46,12 @@ const mapDispatchToProps = dispatch => {
     },
     onTypeChange: (event) => {
       dispatch(typeChanged(event.target.value))
+    },
+    fetchCategories: () => {
+      dispatch(fetchCategories())
+    },
+    fetchAccounts: () => {
+      dispatch(fetchAccounts())
     }
   }
 }

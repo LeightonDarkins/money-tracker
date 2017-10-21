@@ -59,11 +59,6 @@ const categoryForm = (state = initialState, action) => {
     case types.clearTransactionForm:
       return Object.assign({}, state, initialState)
 
-    case types.returnDefaultDate:
-      return Object.assign({}, state, {
-        date: action.date
-      })
-
     default:
       return state
   }

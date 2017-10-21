@@ -76,8 +76,10 @@ exports[`TransactionForm Snapshots should render correctly in default state 1`] 
       onChange={[Function]}
       value="category-1">
       <option
+        className="mt-category-option"
         value="category-1" />
       <option
+        className="mt-category-option"
         value="category-2" />
     </select>
   </div>
@@ -90,8 +92,10 @@ exports[`TransactionForm Snapshots should render correctly in default state 1`] 
       onChange={[Function]}
       value="account-1">
       <option
+        className="mt-account-option"
         value="account-1" />
       <option
+        className="mt-account-option"
         value="account-2" />
     </select>
   </div>
@@ -189,6 +193,7 @@ exports[`TransactionForm Snapshots should render placeholders when data is missi
       onChange={[Function]}
       value="category-1">
       <option
+        className="mt-category-option"
         disabled={true}>
         No Categories Available
       </option>
@@ -203,6 +208,7 @@ exports[`TransactionForm Snapshots should render placeholders when data is missi
       onChange={[Function]}
       value="account-1">
       <option
+        className="mt-account-option"
         disabled={true}>
         No Accounts Available
       </option>

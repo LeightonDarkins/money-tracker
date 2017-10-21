@@ -4,7 +4,7 @@ import './App.scss'
 
 import AccountPage from '../../containers/AccountPage/AccountPage.container.jsx'
 import CategoryPage from '../../containers/CategoryPage/CategoryPage.container.jsx'
-import TransactionPage from '../../containers/TransactionPage/TransactionPage.container.jsx'
+import TransactionForm from '../../containers/TransactionForm/TransactionForm.container.jsx'
 
 class App extends React.Component {
   render () {
@@ -12,8 +12,7 @@ class App extends React.Component {
       <div>
         <Route exact path='/' component={AccountPage} />
         <Route path='/categories' component={CategoryPage} />
-        <Route path='/transactions' component={TransactionPage} />
-        <Route path='/add-transaction' component={TransactionPage} />
+        <Route path='/add-transaction' component={TransactionForm} />
       </div>
     )
   }

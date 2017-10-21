@@ -3,12 +3,11 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { mount } from 'enzyme'
-import { createStore, applyMiddleware, combineReducers } from 'redux'
-import createSagaMiddleware from 'redux-saga'
+import { createStore, combineReducers } from 'redux'
 
 import TransactionForm from './TransactionForm.container'
 import TransactionFormReducer from './TransactionForm.reducer'
-import TransactionFormSaga from './TransactionForm.saga'
+
 import {
   amountChanged,
   dateChanged,
@@ -23,13 +22,9 @@ import {
 import Page from './TransactionForm.page'
 import Mocks from './TransactionForm.mocks'
 
-const sagaMiddleware = createSagaMiddleware()
-
 const Reducers = combineReducers({ TransactionForm: TransactionFormReducer })
 
-const store = createStore(Reducers, applyMiddleware(sagaMiddleware))
-
-sagaMiddleware.run(TransactionFormSaga)
+const store = createStore(Reducers)
 
 describe('TransactionForm Container', () => {
   let wrapper

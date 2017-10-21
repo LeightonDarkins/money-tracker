@@ -17,8 +17,7 @@ import {
   transactionFormFetchCategoriesSucceeded,
   categoryChanged,
   clearTransactionForm,
-  typeChanged,
-  formSubmitted
+  typeChanged
 } from './TransactionForm.actions'
 
 import Page from './TransactionForm.page'

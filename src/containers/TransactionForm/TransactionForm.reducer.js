@@ -1,7 +1,7 @@
 import { types } from './TransactionForm.actions'
 import moment from 'moment'
 
-const initialState = { amount: 0, date: moment(), category: '', account: '', accounts: [], categories: [], transactionType: 'expense' }
+const initialState = { amount: 0, date: moment().startOf('day'), category: '', account: '', accounts: [], categories: [], transactionType: 'expense' }
 
 const hasContents = (array) => array.length > 0
 

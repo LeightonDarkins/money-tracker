@@ -1,11 +1,9 @@
 /* eslint-env jest */
 
-import AccountListReducer from './AccountList.reducer'
+import reducer from './AccountList.reducer'
 import { types } from './AccountList.actions'
 
 describe('AccountListReducer', () => {
-  const reducer = AccountListReducer
-
   it('returns the initial state for no action', () => {
     expect(reducer(undefined, {})).toEqual({ accounts: [], isLoading: false })
   })

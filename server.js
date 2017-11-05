@@ -26,7 +26,8 @@ const items = [
   'assets/fontawesome-webfont.woff',
   'assets/fontawesome-webfont.ttf',
   'assets/fontawesome-webfont.svg',
-  'assets/fontawesome-webfont.eot'
+  'assets/fontawesome-webfont.eot',
+  'offline.html'
 ]
 
 items.forEach((item) => {

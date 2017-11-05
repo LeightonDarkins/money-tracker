@@ -1,6 +1,7 @@
 *
 !.gitignore
 !index.html
+!offline.html
 !manifest.json
 !assets
 !RegisterServiceWorker.js

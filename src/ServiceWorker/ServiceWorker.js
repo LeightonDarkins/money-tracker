@@ -20,8 +20,9 @@ var urlsToCache = ENABLE_CACHE ? [
   '/assets/money-tracker-192.png',
   '/assets/money-tracker-256.png',
   '/assets/money-tracker-384.png',
-  '/assets/money-tracker-512.png'
-] : []
+  '/assets/money-tracker-512.png',
+  '/offline.html'
+] : ['/offline.html']
 
 self.addEventListener('install', function (event) {
   log(`Installing ServiceWorker With Cache: ${CACHE_NAME}`)
@@ -44,7 +45,15 @@ self.addEventListener('fetch', function (event) {
           return response
         }
 
-        return fetch(event.request)
+        return fetch(event.request).then(response => {
+          return response
+        }).catch((error) => {
+          if (event.request.headers.get('accept').includes('text/html')) {
+            return caches.match('/offline.html')
+          }
+
+          return error
+        })
       }
     )
   )

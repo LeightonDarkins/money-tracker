@@ -65,6 +65,14 @@ app.get('/assets/fontawesome-webfont.ttf', (req, res) => {
   res.sendFile(`${__dirname}/dist/assets/fontawesome-webfont.ttf`)
 })
 
+app.get('/assets/fontawesome-webfont.svg', (req, res) => {
+  res.sendFile(`${__dirname}/dist/assets/fontawesome-webfont.svg`)
+})
+
+app.get('/assets/fontawesome-webfont.eot', (req, res) => {
+  res.sendFile(`${__dirname}/dist/assets/fontawesome-webfont.eot`)
+})
+
 app.listen(port, () => {
   console.log(`Started at ${port}`)
 })

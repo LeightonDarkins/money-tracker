@@ -4,6 +4,10 @@ var CACHE_NAME = `money-tracker-cache-${process.env.BUILD_DATE_STAMP}`
 
 const ENABLE_CACHE = process.env.MONEY_TRACKER_ENV !== 'development'
 
+const log = (string) => {
+  console.log(`%c ${string}`, 'color: blue; font-size: 12px;')
+}
+
 var urlsToCache = ENABLE_CACHE ? [
   '/manifest.json',
   '/app.js',
@@ -20,15 +24,13 @@ var urlsToCache = ENABLE_CACHE ? [
 ] : []
 
 self.addEventListener('install', function (event) {
-  // Perform install steps
+  log(`Installing ServiceWorker With Cache: ${CACHE_NAME}`)
+
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(function (cache) {
-        console.log('Opened cache')
+        log(`New Cache: ${CACHE_NAME} Is Open`)
         return cache.addAll(urlsToCache)
-      })
-      .catch(function (error) {
-        console.error(error)
       })
   )
 })
@@ -49,6 +51,8 @@ self.addEventListener('fetch', function (event) {
 })
 
 self.addEventListener('activate', function (event) {
+  log(`Activating ServiceWorker With Cache: ${CACHE_NAME}`)
+
   var cacheWhitelist = [CACHE_NAME]
 
   event.waitUntil(

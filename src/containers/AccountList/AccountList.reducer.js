@@ -9,6 +9,10 @@ const accounts = (state = initialState, action) => {
         accounts: action.accounts,
         isLoading: false
       })
+    case types.fetchAccountsFailed:
+      return Object.assign({}, state, {
+        isLoading: false
+      })
     case types.fetchAccountsStarted:
       return Object.assign({}, state, {
         isLoading: true

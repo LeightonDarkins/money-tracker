@@ -2,5 +2,5 @@
 !.gitignore
 !index.html
 !manifest.json
-!cache.manifest
+!money-tracker.appcache
 !assets

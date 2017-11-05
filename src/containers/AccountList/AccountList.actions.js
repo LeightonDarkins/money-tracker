@@ -18,6 +18,10 @@ export const fetchAccountsSucceeded = (accounts) => {
   return { type: types.fetchAccountsSucceeded, accounts }
 }
 
+export const fetchAccountsFailed = () => {
+  return { type: types.fetchAccountsFailed }
+}
+
 export const addTransactionClicked = () => {
   return { type: types.addTransactionClicked }
 }

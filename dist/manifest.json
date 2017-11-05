@@ -1,5 +1,25 @@
 {
   "short_name": "MT",
   "name": "Money Tracker",
-  "display": "fullscreen"
+  "display": "fullscreen",
+  "theme_color": "#FFF",
+  "background_color": "#FFF",
+  "icons": [
+    {
+      "src": "/assets/money-tracker-192.png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/assets/money-tracker-256.png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "/assets/money-tracker-384.png",
+      "sizes": "384x384"
+    },
+    {
+      "src": "/assets/money-tracker-512.png",
+      "sizes": "512x512"
+    }
+  ]
 }

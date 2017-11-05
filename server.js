@@ -33,6 +33,26 @@ app.get('/cache.manifest', (req, res) => {
   res.sendFile(`${__dirname}/dist/cache.manifest`)
 })
 
+app.get('/assets/money-bag-dollar.png', (req, res) => {
+  res.sendFile(`${__dirname}/dist/assets/money-bag-dollar.png`)
+})
+
+app.get('/assets/money-tracker-192.png', (req, res) => {
+  res.sendFile(`${__dirname}/dist/assets/money-tracker-192.png`)
+})
+
+app.get('/assets/money-tracker-256.png', (req, res) => {
+  res.sendFile(`${__dirname}/dist/assets/money-tracker-256.png`)
+})
+
+app.get('/assets/money-tracker-384.png', (req, res) => {
+  res.sendFile(`${__dirname}/dist/assets/money-tracker-384.png`)
+})
+
+app.get('/assets/money-tracker-512.png', (req, res) => {
+  res.sendFile(`${__dirname}/dist/assets/money-tracker-512.png`)
+})
+
 app.get('/assets/fontawesome-webfont.woff2', (req, res) => {
   res.sendFile(`${__dirname}/dist/assets/fontawesome-webfont.woff2`)
 })

@@ -1,6 +1,6 @@
 /* globals caches, self, fetch */
 
-var CACHE_NAME = `money-tracker-cache-${new Date().getTime()}`
+var CACHE_NAME = `money-tracker-cache-${process.env.BUILD_DATE_STAMP}`
 
 const ENABLE_CACHE = process.env.MONEY_TRACKER_ENV !== 'development'
 

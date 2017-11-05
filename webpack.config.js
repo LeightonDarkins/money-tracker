@@ -1,7 +1,10 @@
 const webpack = require('webpack')
 const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-var AppCachePlugin = require('./config/AppCachePlugin')
+const AppCachePlugin = require('./config/AppCachePlugin')
+const BUILD_DATE_STAMP = new Date().getTime()
+
+console.log(`Building With Date Stamp: ${BUILD_DATE_STAMP}`)
 
 const config = {
   entry: {
@@ -48,6 +51,7 @@ const config = {
     new ExtractTextPlugin('styles.css'),
     new webpack.DefinePlugin({
       'process.env': {
+        'BUILD_DATE_STAMP': BUILD_DATE_STAMP,
         'MONEY_TRACKER_ENV': JSON.stringify(process.env.MONEY_TRACKER_ENV),
         'MONEY_TRACKER_SERVER_HOST': JSON.stringify(process.env.MONEY_TRACKER_SERVER_HOST),
         'MONEY_TRACKER_SERVER_PORT': JSON.stringify(process.env.MONEY_TRACKER_SERVER_PORT)

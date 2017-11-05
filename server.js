@@ -1,10 +1,12 @@
 require('./config/node-config')
 
+const sslRedirect = require('heroku-ssl-redirect')
 const compression = require('compression')
 const express = require('express')
 const path = require('path')
 
 let app = express()
+app.use(sslRedirect())
 const port = process.env.PORT
 
 app.use(compression())

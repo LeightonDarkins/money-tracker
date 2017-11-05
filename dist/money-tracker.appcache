@@ -1,18 +1,4 @@
 CACHE MANIFEST
-
-# V1
-
-CACHE:
-/manifest.json
-/styles.css
-/app.js
-/assets/money-tracker-192.png
-/assets/money-tracker-256.png
-/assets/money-tracker-384.png
-/assets/money-tracker-512.png
-/assets/fontawesome-webfont.woff
-/assets/fontawesome-webfont.woff2
-/assets/fontawesome-webfont.ttf
-
+# cfdfb8ae0722146ee005
 NETWORK:
 *

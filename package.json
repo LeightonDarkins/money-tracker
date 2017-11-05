@@ -9,6 +9,7 @@
     "remote": "node local-server.js",
     "local": "node local-server.js --local",
     "watch": "webpack --watch",
+    "build": "webpack",
     "test": "npm run lint && jest",
     "test-watch": "jest --watch",
     "lint": "./node_modules/standard/bin/cmd.js"

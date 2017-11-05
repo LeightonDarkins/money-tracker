@@ -29,8 +29,8 @@ app.get('/manifest.json', (req, res) => {
   res.sendFile(`${__dirname}/dist/manifest.json`)
 })
 
-app.get('/cache.manifest', (req, res) => {
-  res.sendFile(`${__dirname}/dist/cache.manifest`)
+app.get('/money-tracker.appcache', (req, res) => {
+  res.sendFile(`${__dirname}/dist/money-tracker.appcache`)
 })
 
 app.get('/assets/money-bag-dollar.png', (req, res) => {

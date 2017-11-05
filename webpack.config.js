@@ -1,6 +1,7 @@
 const webpack = require('webpack')
 const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+var AppCachePlugin = require('./config/AppCachePlugin')
 
 const config = {
   entry: {
@@ -52,6 +53,26 @@ const config = {
       }
     })
   ]
+}
+
+const USE_APPCACHE = process.env.MONEY_TRACKER_ENV !== 'development'
+
+if (USE_APPCACHE) {
+  console.log('Generating AppCache Manifest')
+
+  config.plugins.push(new AppCachePlugin(Object.assign({}, {
+    empty: false,
+    cache: ['manifest.json',
+      'assets/money-tracker-192.png',
+      'assets/money-tracker-256.png',
+      'assets/money-tracker-384.png',
+      'assets/money-tracker-512.png'
+    ],
+    output: 'money-tracker.appcache'})))
+} else {
+  console.log('Generating Empty AppCache Manifest')
+
+  config.plugins.push(new AppCachePlugin({ empty: true, output: 'money-tracker.appcache' }))
 }
 
 module.exports = config

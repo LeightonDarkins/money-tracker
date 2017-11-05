@@ -1,7 +1,7 @@
 import { put, call, takeLatest } from 'redux-saga/effects'
 import AccountApi from '../../apis/Account.api'
 import { types as accountFormActionTypes } from './AccountForm.actions'
-import { fetchAccounts } from '../AccountPage/AccountPage.actions'
+import { fetchAccounts } from '../AccountList/AccountList.actions'
 import { apiError } from '../../common/common.actions'
 
 function * createAccount (action) {

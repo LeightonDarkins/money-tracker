@@ -12,6 +12,10 @@ class AccountList extends Component {
     this.accountBalanceAsCurrency = this.accountBalanceAsCurrency.bind(this)
   }
 
+  componentDidMount () {
+    this.props.fetchAccounts()
+  }
+
   accountListElement () {
     if (this.props.isLoading) {
       return (<div className='account-list-spinner-container'>

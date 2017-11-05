@@ -25,6 +25,14 @@ app.get('/app.js', (req, res) => {
   res.sendFile(`${__dirname}/dist/app.js`)
 })
 
+app.get('/serviceWorker.js', (req, res) => {
+  res.sendFile(`${__dirname}/dist/serviceWorker.js`)
+})
+
+app.get('/RegisterServiceWorker.js', (req, res) => {
+  res.sendFile(`${__dirname}/dist/RegisterServiceWorker.js`)
+})
+
 app.get('/manifest.json', (req, res) => {
   res.sendFile(`${__dirname}/dist/manifest.json`)
 })

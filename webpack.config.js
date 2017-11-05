@@ -5,7 +5,8 @@ var AppCachePlugin = require('./config/AppCachePlugin')
 
 const config = {
   entry: {
-    app: path.join(__dirname, '/src/index.js')
+    app: path.join(__dirname, '/src/index.js'),
+    serviceWorker: path.join(__dirname, 'src/ServiceWorker/ServiceWorker.js')
   },
   output: {
     path: path.join(__dirname, '/dist'),
@@ -15,7 +16,7 @@ const config = {
     rules: [
       // Load JSX
       {
-        test: /\.jsx?/,
+        test: /\.jsx?|\.js?/,
         exclude: /node_modules/,
         use: 'babel-loader'
       },

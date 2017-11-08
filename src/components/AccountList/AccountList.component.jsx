@@ -25,7 +25,7 @@ class AccountList extends Component {
 
     if (this.props.accounts.length === 0) {
       return (<ul className='account-list'>
-        <li>No Accounts Available</li>
+        <li className='placeholder'>No Accounts Available</li>
       </ul>)
     }
 
@@ -51,18 +51,20 @@ class AccountList extends Component {
 
   render () {
     return (
-      <div>
-        <h2>Accounts</h2>
-        <div className='accounts-balance'>
-          Balance: { this.accountBalanceAsCurrency(this.props.accounts) }
-        </div>
-        {this.accountListElement()}
-        <button id='mt-add-category' className='account-list-action'
-          onClick={this.props.onAddCategoryClick} >Add Category</button>
-        <button id='mt-add-account' className='account-list-action'
-          onClick={this.props.onAddAccountClick} >Add Account</button>
-        <button id='mt-add-transaction' className='account-list-action'
-          onClick={this.props.onAddTransactionClick} >Add Transaction</button>
+      <div id='AccountList'>
+        <section id='al-header' className='mt-header'>
+          <h2>Accounts</h2>
+          <div className='accounts-balance'>
+            Balance: { this.accountBalanceAsCurrency(this.props.accounts) }
+          </div>
+        </section>
+        <section className='mt-body scroll-view'>
+          {this.accountListElement()}
+        </section>
+        <section className='mt-footer'>
+          <button id='mt-add-transaction' className='account-list-action'
+            onClick={this.props.onAddTransactionClick} >Add Transaction</button>
+        </section>
       </div>
     )
   }

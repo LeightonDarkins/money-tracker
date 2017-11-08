@@ -1,7 +1,13 @@
 @import '../../variables.scss';
 @import '~react-datepicker/dist/react-datepicker.css';
 
-.transaction-form {
+#TransactionForm {
+  .mt-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   width: 100%;
 
   label {
@@ -51,6 +57,7 @@
   button {
     width: 100%;
     margin: 5px;
+    border-radius: 0;
   }
 
   .confirm {

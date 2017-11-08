@@ -1,46 +1,61 @@
 @import '../../variables.scss';
 
-.account-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  min-height: 275px;
-  max-height: 275px;
-  overflow: auto;
-}
+#AccountList {
+  .scroll-view {
+    overflow: auto;
+  }
 
-.accounts-balance {
-  text-align: center;
-  font-size: $default-font-size;
-  width: 100%;
-  margin-bottom: 20px;
-}
+  #al-header {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 50% auto;
 
-.account-list-spinner-container {
-  min-height: 275px;
-  text-align: center;
-}
+    h2 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-.account-list-action-bar {
-  position: absolute;
-  bottom: 0px;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
+    .accounts-balance {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: $default-font-size;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
 
-.account-list-action {
-  height: $default-element-height;
-  margin: 5px 0 5px 0;
-  width: 100%;
-  color: #fff;
-  background-color: #08B477;
-  font-size: 16px;
-  border: none;
-}
+  .account-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 
-.account-list-action:hover {
-  color: #eee;
-  cursor: pointer;
-  background-color: #51EBB4;
+    .placeholder {
+      margin-top: 10px;
+      text-align: center;
+    }
+  }
+
+  .account-list-spinner-container {
+    padding-top: 10px;
+    text-align: center;
+  }
+
+  .account-list-action {
+    height: $default-element-height;
+    margin: 5px 0 5px 0;
+    width: 100%;
+    color: #fff;
+    background-color: #08B477;
+    font-size: 16px;
+    border-radius: 0;
+    border: none;
+  }
+
+  .account-list-action:hover {
+    color: #eee;
+    cursor: pointer;
+    background-color: #51EBB4;
+  }
 }

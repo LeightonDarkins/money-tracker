@@ -63,58 +63,62 @@ class TransactionForm extends Component {
 
   render () {
     return (
-      <div className='transaction-form'>
-        <h1>Create Transaction</h1>
-        <div>
+      <div id='TransactionForm'>
+        <section className='mt-header'>
+          <h2>Create Transaction</h2>
+        </section>
+        <section className='mt-body'>
           <div>
-            <label>Type</label>
+            <div>
+              <label>Type</label>
+              <select
+                className='mt-type-select'
+                value={this.props.transactionType}
+                onChange={this.props.onTypeChange} >
+                <option value='expense'>Expense</option>
+                <option value='income'>Income</option>
+              </select>
+            </div>
+            <label>Amount</label>
+            <div className='mt-number-input-container'>
+              <input type='number'
+                value={this.props.amount / 100}
+                onChange={this.localAmountChange}
+                onFocus={this.onInputFocus} />
+            </div>
+          </div>
+
+          <div>
+            <label>Date</label>
+            <DatePicker
+              className='mt-datepicker'
+              selected={this.props.date}
+              onChange={this.props.onDateChange}
+              dateFormat='DD/MM/YYYY' />
+          </div>
+
+          <div>
+            <label>Category</label>
             <select
-              className='mt-type-select'
-              value={this.props.transactionType}
-              onChange={this.props.onTypeChange} >
-              <option value='expense'>Expense</option>
-              <option value='income'>Income</option>
+              className='mt-category-select'
+              value={this.props.category}
+              onChange={this.props.onCategoryChange}>
+              { this.categoryOptions() }
             </select>
           </div>
-          <label>Amount</label>
-          <div className='mt-number-input-container'>
-            <input type='number'
-              value={this.props.amount / 100}
-              onChange={this.localAmountChange}
-              onFocus={this.onInputFocus} />
+
+          <div>
+            <label>Account</label>
+            <select
+              className='mt-account-select'
+              value={this.props.account}
+              onChange={this.props.onAccountChange}>
+              { this.accountOptions() }
+            </select>
           </div>
-        </div>
+        </section>
 
-        <div>
-          <label>Date</label>
-          <DatePicker
-            className='mt-datepicker'
-            selected={this.props.date}
-            onChange={this.props.onDateChange}
-            dateFormat='DD/MM/YYYY' />
-        </div>
-
-        <div>
-          <label>Category</label>
-          <select
-            className='mt-category-select'
-            value={this.props.category}
-            onChange={this.props.onCategoryChange}>
-            { this.categoryOptions() }
-          </select>
-        </div>
-
-        <div>
-          <label>Account</label>
-          <select
-            className='mt-account-select'
-            value={this.props.account}
-            onChange={this.props.onAccountChange}>
-            { this.accountOptions() }
-          </select>
-        </div>
-
-        <div className='transaction-form-actions'>
+        <section className='mt-footer transaction-form-actions'>
           <button className='cancel' onClick={this.props.onCancelClick}>
             Cancel
           </button>
@@ -123,7 +127,7 @@ class TransactionForm extends Component {
             onClick={this.localSubmitClick}>
             Done
           </button>
-        </div>
+        </section>
       </div>
     )
   }

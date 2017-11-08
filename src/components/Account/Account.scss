@@ -5,23 +5,38 @@
   height: $default-element-height;
   min-height: $default-account-element-height;
   margin: $default-spacing auto $default-spacing auto;
-  border-bottom: 1px solid #ddd;
+  border-bottom: $divider-border;
+  display: grid;
+  grid-template-columns: 75% 25%;
+  grid-template-rows: 50% auto;
 
   .account-element {
     padding: $default-spacing;
   }
 
   .account-name {
+    grid-column-start: 1;
+    grid-column-end: 2;
     font-size: $default-font-size;
     vertical-align: middle;
   }
 
   .account-balance {
-    float: right;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    grid-column-start: 2;
+    grid-row-start: 1;
+    grid-row-end: span 2;
   }
 
   .account-opening-balance {
+    display: flex;
+    align-items: flex-end;
     font-size: 13px;
     color: #aaa;
+    grid-row-start: 2;
+    grid-column-start: 1;
+    grid-column-end: span 2;
   }
 }

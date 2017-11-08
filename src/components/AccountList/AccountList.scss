@@ -21,8 +21,6 @@
       justify-content: center;
       align-items: center;
       font-size: $default-font-size;
-      width: 100%;
-      margin-bottom: 20px;
     }
   }
 
@@ -32,13 +30,13 @@
     margin: 0;
 
     .placeholder {
-      margin-top: 10px;
+      margin-top: $placeholder-spacing;
       text-align: center;
     }
   }
 
   .account-list-spinner-container {
-    padding-top: 10px;
+    padding-top: $placeholder-spacing;
     text-align: center;
   }
 
@@ -46,16 +44,15 @@
     height: $default-element-height;
     margin: 5px 0 5px 0;
     width: 100%;
-    color: #fff;
-    background-color: #08B477;
+    color: white;
+    background-color: $confirm-green;
     font-size: 16px;
     border-radius: 0;
     border: none;
   }
 
   .account-list-action:hover {
-    color: #eee;
     cursor: pointer;
-    background-color: #51EBB4;
+    background-color: lighten($confirm-green, 5%);
   }
 }

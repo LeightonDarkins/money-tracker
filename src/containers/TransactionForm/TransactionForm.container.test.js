@@ -235,12 +235,13 @@ describe('TransactionForm Container', () => {
   })
 
   it('handles typeChanged', () => {
-    let typeSelector = Page.getTypeSelectorElement(wrapper)
+    let expenseTypeSelector = Page.getExpenseTypeRadioElement(wrapper)
+    let incomeTypeSelector = Page.getIncomeTypeRadioElement(wrapper)
 
-    expect(typeSelector.props().value).toEqual('expense')
+    expect(expenseTypeSelector.props().checked).toBeTruthy()
 
     store.dispatch(typeChanged('income'))
 
-    expect(typeSelector.props().value).toEqual('income')
+    expect(incomeTypeSelector.props().checked).toBeTruthy()
   })
 })

@@ -2,10 +2,48 @@
 @import '~react-datepicker/dist/react-datepicker.css';
 
 #TransactionForm {
+  .mt-transaction-type {
+    display: flex;
+    justify-content: space-evenly;
+
+
+    input[type=radio] {
+      display:none;
+    }
+
+    input[type=radio] + label
+    {
+      color: black;
+      background: #ddd;
+      height: $default-element-height;
+      width: 100%;
+      display: grid;
+      align-items: center;
+      padding: 0 0 0 0px;
+      text-align: center;
+      font-size: $default-font-size;
+    }
+
+    input[type=radio]:checked + label
+    {
+      background: $confirm-green;
+      color: white;
+    }
+
+    input[type=radio]:hover + label
+    {
+      cursor: pointer;
+    }
+  }
+
   .mt-header {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .mt-body {
+    padding: $default-spacing;
   }
 
   width: 100%;
@@ -20,22 +58,71 @@
     padding: 0 5px 0 5px;
   }
 
-  input, select {
-    width: 310px;
+  input {
+    width: 100%;
     font-size: $default-font-size;
-    margin: 5px;
-    padding-left: 5px;
+    margin: $default-spacing 0 $default-spacing 0;
   }
 
-  button, select, input {
+  .select-container {
+    font-size: $default-font-size;
+    margin: $default-spacing 0 0 0;
+    padding: 0;
+    border: none;
+    overflow: hidden;
+    background-color: white;
+    position: relative;
+    display: block;
+  }
+
+  .select-container:after {
+    font-size: 32px;
+    content: "\f107";
+    font-family: FontAwesome;
+    color: black;
+    padding: $default-spacing;
+    padding-left: 0;
+    padding-right: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    text-align: center;
+    width: 40px;
+    height: 100%;
+    pointer-events: none;
+    box-sizing: border-box;
+  }
+
+  select {
+    font-size: $default-font-size;
+    padding: $default-spacing;
+    padding-right: 20px;
+    color: black;
+    width: 100%;
+    height: $default-element-height;
+    border-radius: 0;
+    background-color: white;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 1px solid #ddd;
+    outline: none;
+  }
+
+  button, input {
     height: $default-element-height;
   }
 
   .mt-number-input-container {
     position: relative;
+    width: 100%;
 
     input {
       text-align: right;
+      box-sizing: border-box;
+      -webkit-box-sizing:border-box;
+      -moz-box-sizing: border-box;
     }
   }
 
@@ -45,7 +132,20 @@
     transform: translateY(-50%);
     font-size: $default-font-size;
     content: '$';
-    left: 10px;
+    padding-left: 10px;
+  }
+
+  .react-datepicker-wrapper {
+    width: 100%;
+
+    .react-datepicker__input-container {
+      width: 100%;
+
+      input {
+        --webkit-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+    }
   }
 }
 
@@ -56,33 +156,30 @@
 
   button {
     width: 100%;
-    margin: 5px;
     border-radius: 0;
   }
 
   .confirm {
-    color: #fff;
-    background-color: #08B477;
+    color: white;
+    background-color: $confirm-green;
     font-size: 16px;
     border: none;
   }
 
   .confirm:hover {
-    color: #eee;
     cursor: pointer;
-    background-color: #51EBB4;
+    background-color: $confirm-green-hover;
   }
 
   .cancel {
-    color: #fff;
-    background-color: #B42501;
+    color: white;
+    background-color: $cancel-red;
     font-size: 16px;
     border: none;
   }
 
   .cancel:hover {
-    color: #eee;
     cursor: pointer;
-    background-color: #EB6848;
+    background-color: $cancel-red-hover;
   }
 }

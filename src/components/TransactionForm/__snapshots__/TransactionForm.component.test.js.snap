@@ -9,25 +9,32 @@ exports[`TransactionForm Snapshots should render correctly in default state 1`] 
   </section>
   <section
     className="mt-body">
+    <div
+      className="mt-transaction-type">
+      <input
+        checked={true}
+        id="expense-type"
+        name="type"
+        onChange={[Function]}
+        type="radio"
+        value="expense" />
+      <label
+        htmlFor="expense-type">
+        Expense
+      </label>
+      <input
+        checked={false}
+        id="income-type"
+        name="type"
+        onChange={[Function]}
+        type="radio"
+        value="income" />
+      <label
+        htmlFor="income-type">
+        Income
+      </label>
+    </div>
     <div>
-      <div>
-        <label>
-          Type
-        </label>
-        <select
-          className="mt-type-select"
-          onChange={[Function]}
-          value="expense">
-          <option
-            value="expense">
-            Expense
-          </option>
-          <option
-            value="income">
-            Income
-          </option>
-        </select>
-      </div>
       <label>
         Amount
       </label>
@@ -76,33 +83,39 @@ exports[`TransactionForm Snapshots should render correctly in default state 1`] 
       <label>
         Category
       </label>
-      <select
-        className="mt-category-select"
-        onChange={[Function]}
-        value="category-1">
-        <option
-          className="mt-category-option"
-          value="category-1" />
-        <option
-          className="mt-category-option"
-          value="category-2" />
-      </select>
+      <div
+        className="select-container">
+        <select
+          className="mt-category-select"
+          onChange={[Function]}
+          value="category-1">
+          <option
+            className="mt-category-option"
+            value="category-1" />
+          <option
+            className="mt-category-option"
+            value="category-2" />
+        </select>
+      </div>
     </div>
     <div>
       <label>
         Account
       </label>
-      <select
-        className="mt-account-select"
-        onChange={[Function]}
-        value="account-1">
-        <option
-          className="mt-account-option"
-          value="account-1" />
-        <option
-          className="mt-account-option"
-          value="account-2" />
-      </select>
+      <div
+        className="select-container">
+        <select
+          className="mt-account-select"
+          onChange={[Function]}
+          value="account-1">
+          <option
+            className="mt-account-option"
+            value="account-1" />
+          <option
+            className="mt-account-option"
+            value="account-2" />
+        </select>
+      </div>
     </div>
   </section>
   <section
@@ -132,25 +145,32 @@ exports[`TransactionForm Snapshots should render placeholders when data is missi
   </section>
   <section
     className="mt-body">
+    <div
+      className="mt-transaction-type">
+      <input
+        checked={true}
+        id="expense-type"
+        name="type"
+        onChange={[Function]}
+        type="radio"
+        value="expense" />
+      <label
+        htmlFor="expense-type">
+        Expense
+      </label>
+      <input
+        checked={false}
+        id="income-type"
+        name="type"
+        onChange={[Function]}
+        type="radio"
+        value="income" />
+      <label
+        htmlFor="income-type">
+        Income
+      </label>
+    </div>
     <div>
-      <div>
-        <label>
-          Type
-        </label>
-        <select
-          className="mt-type-select"
-          onChange={[Function]}
-          value="expense">
-          <option
-            value="expense">
-            Expense
-          </option>
-          <option
-            value="income">
-            Income
-          </option>
-        </select>
-      </div>
       <label>
         Amount
       </label>
@@ -199,31 +219,37 @@ exports[`TransactionForm Snapshots should render placeholders when data is missi
       <label>
         Category
       </label>
-      <select
-        className="mt-category-select"
-        onChange={[Function]}
-        value="category-1">
-        <option
-          className="mt-category-option"
-          disabled={true}>
-          No Categories Available
-        </option>
-      </select>
+      <div
+        className="select-container">
+        <select
+          className="mt-category-select"
+          onChange={[Function]}
+          value="category-1">
+          <option
+            className="mt-category-option"
+            disabled={true}>
+            No Categories Available
+          </option>
+        </select>
+      </div>
     </div>
     <div>
       <label>
         Account
       </label>
-      <select
-        className="mt-account-select"
-        onChange={[Function]}
-        value="account-1">
-        <option
-          className="mt-account-option"
-          disabled={true}>
-          No Accounts Available
-        </option>
-      </select>
+      <div
+        className="select-container">
+        <select
+          className="mt-account-select"
+          onChange={[Function]}
+          value="account-1">
+          <option
+            className="mt-account-option"
+            disabled={true}>
+            No Accounts Available
+          </option>
+        </select>
+      </div>
     </div>
   </section>
   <section

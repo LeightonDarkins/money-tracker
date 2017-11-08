@@ -146,12 +146,20 @@ describe('TransactionForm', () => {
       expect(mockedProps.onAccountChange).toBeCalledWith('account-2')
     })
 
-    it('calls onTypeChange when the type is changed', () => {
-      const selector = wrapper.find('.mt-type-select')
+    it('calls onTypeChange when the expense-type is changed', () => {
+      const selector = wrapper.find('.mt-transaction-type #expense-type')
 
-      selector.simulate('change', 'income')
+      selector.simulate('change')
 
-      expect(mockedProps.onTypeChange).toBeCalledWith('income')
+      expect(mockedProps.onTypeChange).toBeCalled()
+    })
+
+    it('calls onTypeChange when the income-type is changed', () => {
+      const selector = wrapper.find('.mt-transaction-type #income-type')
+
+      selector.simulate('change')
+
+      expect(mockedProps.onTypeChange).toBeCalled()
     })
 
     it('calls onSubmitClick when the submit button is clicked', () => {

@@ -67,18 +67,21 @@ class TransactionForm extends Component {
         <section className='mt-header'>
           <h2>Create Transaction</h2>
         </section>
+
         <section className='mt-body'>
+          <div className='mt-transaction-type'>
+            <input type='radio' name='type' id='expense-type' value='expense'
+              checked={this.props.transactionType === 'expense'}
+              onChange={this.props.onTypeChange} />
+            <label htmlFor='expense-type'>Expense</label>
+
+            <input type='radio' name='type' id='income-type' value='income'
+              checked={this.props.transactionType === 'income'}
+              onChange={this.props.onTypeChange} />
+            <label htmlFor='income-type'>Income</label>
+          </div>
+
           <div>
-            <div>
-              <label>Type</label>
-              <select
-                className='mt-type-select'
-                value={this.props.transactionType}
-                onChange={this.props.onTypeChange} >
-                <option value='expense'>Expense</option>
-                <option value='income'>Income</option>
-              </select>
-            </div>
             <label>Amount</label>
             <div className='mt-number-input-container'>
               <input type='number'
@@ -99,22 +102,26 @@ class TransactionForm extends Component {
 
           <div>
             <label>Category</label>
-            <select
-              className='mt-category-select'
-              value={this.props.category}
-              onChange={this.props.onCategoryChange}>
-              { this.categoryOptions() }
-            </select>
+            <div className='select-container'>
+              <select
+                className='mt-category-select'
+                value={this.props.category}
+                onChange={this.props.onCategoryChange}>
+                { this.categoryOptions() }
+              </select>
+            </div>
           </div>
 
           <div>
             <label>Account</label>
-            <select
-              className='mt-account-select'
-              value={this.props.account}
-              onChange={this.props.onAccountChange}>
-              { this.accountOptions() }
-            </select>
+            <div className='select-container'>
+              <select
+                className='mt-account-select'
+                value={this.props.account}
+                onChange={this.props.onAccountChange}>
+                { this.accountOptions() }
+              </select>
+            </div>
           </div>
         </section>
 

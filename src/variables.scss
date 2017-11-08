@@ -1,4 +1,5 @@
 $default-spacing: 5px;
+$placeholder-spacing: 10px;
 
 $default-font-size: 20px;
 
@@ -6,3 +7,8 @@ $default-element-height: 41px;
 $default-account-element-height: 61px;
 
 $divider-border: 1px solid #ddd;
+
+$confirm-green: #08B477;
+$confirm-green-hover: lighten($confirm-green, 5%);
+$cancel-red: #B42501;
+$cancel-red-hover: lighten($cancel-red, 5%)

@@ -19,7 +19,11 @@ module.exports = {
     return wrapper.find('.mt-category-select')
   },
 
-  getTypeSelectorElement: (wrapper) => {
-    return wrapper.find('.mt-type-select')
+  getExpenseTypeRadioElement: (wrapper) => {
+    return wrapper.find('.mt-transaction-type #expense-type')
+  },
+
+  getIncomeTypeRadioElement: (wrapper) => {
+    return wrapper.find('.mt-transaction-type #income-type')
   }
 }

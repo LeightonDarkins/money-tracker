@@ -1,127 +1,125 @@
 exports[`AccountList Snapshots should render a list of accounts 1`] = `
-<div>
-  <h2>
-    Accounts
-  </h2>
-  <div
-    className="accounts-balance">
-    Balance: 
-    $5.00
-  </div>
-  <ul
-    className="account-list">
-    <li
-      className="account-list-item"
-      onClick={[Function]}>
-      <div
-        className="account-container">
-        <span
-          className="account-element account-name">
-          testAccount1
-        </span>
-        <span
-          className="account-element account-balance">
-          $5.00
-        </span>
+<div
+  id="AccountList">
+  <section
+    className="mt-header"
+    id="al-header">
+    <h2>
+      Accounts
+    </h2>
+    <div
+      className="accounts-balance">
+      Balance: 
+      $5.00
+    </div>
+  </section>
+  <section
+    className="mt-body scroll-view">
+    <ul
+      className="account-list">
+      <li
+        className="account-list-item"
+        onClick={[Function]}>
         <div
-          className="account-element account-opening-balance">
-          Opening Balance: 
-          $0.00
+          className="account-container">
+          <span
+            className="account-element account-name">
+            testAccount1
+          </span>
+          <span
+            className="account-element account-balance">
+            $5.00
+          </span>
+          <div
+            className="account-element account-opening-balance">
+            Opening Balance: 
+            $0.00
+          </div>
         </div>
-      </div>
-    </li>
-  </ul>
-  <button
-    className="account-list-action"
-    id="mt-add-category"
-    onClick={[Function]}>
-    Add Category
-  </button>
-  <button
-    className="account-list-action"
-    id="mt-add-account"
-    onClick={[Function]}>
-    Add Account
-  </button>
-  <button
-    className="account-list-action"
-    id="mt-add-transaction"
-    onClick={[Function]}>
-    Add Transaction
-  </button>
+      </li>
+    </ul>
+  </section>
+  <section
+    className="mt-footer">
+    <button
+      className="account-list-action"
+      id="mt-add-transaction"
+      onClick={[Function]}>
+      Add Transaction
+    </button>
+  </section>
 </div>
 `;
 
 exports[`AccountList Snapshots should render with a placeholder when no accounts are present 1`] = `
-<div>
-  <h2>
-    Accounts
-  </h2>
-  <div
-    className="accounts-balance">
-    Balance: 
-    $0.00
-  </div>
-  <ul
-    className="account-list">
-    <li>
-      No Accounts Available
-    </li>
-  </ul>
-  <button
-    className="account-list-action"
-    id="mt-add-category"
-    onClick={[Function]}>
-    Add Category
-  </button>
-  <button
-    className="account-list-action"
-    id="mt-add-account"
-    onClick={[Function]}>
-    Add Account
-  </button>
-  <button
-    className="account-list-action"
-    id="mt-add-transaction"
-    onClick={[Function]}>
-    Add Transaction
-  </button>
+<div
+  id="AccountList">
+  <section
+    className="mt-header"
+    id="al-header">
+    <h2>
+      Accounts
+    </h2>
+    <div
+      className="accounts-balance">
+      Balance: 
+      $0.00
+    </div>
+  </section>
+  <section
+    className="mt-body scroll-view">
+    <ul
+      className="account-list">
+      <li
+        className="placeholder">
+        No Accounts Available
+      </li>
+    </ul>
+  </section>
+  <section
+    className="mt-footer">
+    <button
+      className="account-list-action"
+      id="mt-add-transaction"
+      onClick={[Function]}>
+      Add Transaction
+    </button>
+  </section>
 </div>
 `;
 
 exports[`AccountList Snapshots should render with a spinner when loading 1`] = `
-<div>
-  <h2>
-    Accounts
-  </h2>
-  <div
-    className="accounts-balance">
-    Balance: 
-    $0.00
-  </div>
-  <div
-    className="account-list-spinner-container">
-    <i
-      aria-hidden="true"
-      className="fa fa-circle-o-notch fa-spin fa-2x account-list-spinner" />
-  </div>
-  <button
-    className="account-list-action"
-    id="mt-add-category"
-    onClick={[Function]}>
-    Add Category
-  </button>
-  <button
-    className="account-list-action"
-    id="mt-add-account"
-    onClick={[Function]}>
-    Add Account
-  </button>
-  <button
-    className="account-list-action"
-    id="mt-add-transaction"
-    onClick={[Function]}>
-    Add Transaction
-  </button>
+<div
+  id="AccountList">
+  <section
+    className="mt-header"
+    id="al-header">
+    <h2>
+      Accounts
+    </h2>
+    <div
+      className="accounts-balance">
+      Balance: 
+      $0.00
+    </div>
+  </section>
+  <section
+    className="mt-body scroll-view">
+    <div
+      className="account-list-spinner-container">
+      <i
+        aria-hidden="true"
+        className="fa fa-circle-o-notch fa-spin fa-2x account-list-spinner" />
+    </div>
+  </section>
+  <section
+    className="mt-footer">
+    <button
+      className="account-list-action"
+      id="mt-add-transaction"
+      onClick={[Function]}>
+      Add Transaction
+    </button>
+  </section>
 </div>
 `;

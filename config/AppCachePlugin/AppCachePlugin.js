@@ -28,20 +28,20 @@ class AppCachePlugin {
   }
 
   apply (compiler) {
-    console.log('AppCachePlugin: Applying...')
+    // console.log('AppCachePlugin: Applying...')
 
     const {options: {output: outputOptions = {}} = {}} = compiler
     const {publicPath = ''} = outputOptions
 
     compiler.plugin('emit', (compilation, callback) => {
       if (this.empty) {
-        console.log(`${this.constructor.name}: Empty ApplicationCache`)
+        // console.log(`${this.constructor.name}: Empty ApplicationCache`)
 
         compilation.assets[this.output] = new EmptyAppCache(compilation.hash)
 
         callback()
       } else {
-        console.log(`${this.constructor.name}: Populated ApplicationCache`)
+        // console.log(`${this.constructor.name}: Populated ApplicationCache`)
 
         const appCache = new AppCache(this.cache, this.network, this.fallback, this.settings, compilation.hash, this.comment)
 

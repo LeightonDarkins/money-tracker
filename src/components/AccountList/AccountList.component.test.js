@@ -108,13 +108,13 @@ describe('AccountList', () => {
       mockAddTransactionClick.mockReset()
     })
 
-    it('calls onAddAccountClick when the add account button is clicked', () => {
+    it.skip('calls onAddAccountClick when the add account button is clicked', () => {
       wrapper.find('#mt-add-account').simulate('click')
 
       expect(mockAddAccountClick).toBeCalled()
     })
 
-    it('calls onAddCategoryClick when the add category button is clicked', () => {
+    it.skip('calls onAddCategoryClick when the add category button is clicked', () => {
       wrapper.find('#mt-add-category').simulate('click')
 
       expect(mockAddCategoryClick).toBeCalled()

@@ -13,7 +13,7 @@ import { push } from 'react-router-redux'
 
 import { apiError } from '../../common/common.actions'
 
-function * createTransaction (action) {
+export function * createTransaction (action) {
   try {
     yield call(TransactionApi.createTransaction, action.transactionDetails)
     yield put(clearTransactionForm())
@@ -23,7 +23,7 @@ function * createTransaction (action) {
   }
 }
 
-function * fetchCategories (action) {
+export function * fetchCategories () {
   try {
     const categories = yield call(CategoryApi.fetchCategories)
     yield put(transactionFormFetchCategoriesSucceeded(categories))
@@ -32,7 +32,7 @@ function * fetchCategories (action) {
   }
 }
 
-function * fetchAccounts (action) {
+export function * fetchAccounts () {
   try {
     const accounts = yield call(AccountApi.fetchAccounts)
     yield put(transactionFormFetchAccountsSucceeded(accounts))
@@ -41,7 +41,7 @@ function * fetchAccounts (action) {
   }
 }
 
-function * cancel () {
+export function * cancel () {
   yield put(clearTransactionForm())
   yield put(push('/'))
 }

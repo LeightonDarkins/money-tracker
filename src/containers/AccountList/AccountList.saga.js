@@ -4,7 +4,7 @@ import { fetchAccountsSucceeded, fetchAccountsStarted, fetchAccountsFailed, type
 import { apiError } from '../../common/common.actions'
 import { push } from 'react-router-redux'
 
-function * fetchAccounts () {
+export function * fetchAccounts () {
   try {
     yield put(fetchAccountsStarted())
     const accounts = yield call(AccountApi.fetchAccounts)
@@ -15,11 +15,11 @@ function * fetchAccounts () {
   }
 }
 
-function * accountClicked (action) {
+export function * accountClicked (action) {
   yield put(push(`account/${action.id}`))
 }
 
-function * addTransactionClicked () {
+export function * addTransactionClicked () {
   yield put(push('add-transaction'))
 }
 

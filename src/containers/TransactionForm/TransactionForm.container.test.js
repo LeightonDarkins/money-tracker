@@ -1,4 +1,4 @@
-/* global describe, it, expect, beforeEach */
+/* eslint-env jest */
 
 import React from 'react'
 import { Provider } from 'react-redux'

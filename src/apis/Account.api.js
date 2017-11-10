@@ -18,5 +18,12 @@ export default {
       method: 'get',
       responseType: 'json'
     }).then(response => response.data)
+  },
+  fetchTransactionsForAccount: (id) => {
+    return axios.request({
+      url: `${url}/${id}/transactions`,
+      method: 'get',
+      responseType: 'json'
+    }).then(response => response.data)
   }
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Transaction from '../Transaction/Transaction.component.jsx'
+import moment from 'moment'
 
 import './TransactionList.scss'
 
@@ -19,6 +20,50 @@ class TransactionList extends Component {
     }
   }
 
+  displayList () {
+    let list = []
+    let date
+
+    this.props.transactions.forEach(transaction => {
+      if (!date) {
+        date = transaction.date
+        list.push({ type: 'date-divider', date: moment(date).format('DD/MM/YYYY') })
+      } else if (moment(date).format('DD/MM/YYYY') !== moment(transaction.date).format('DD/MM/YYYY')) {
+        date = transaction.date
+        list.push({ type: 'date-divider', date: moment(date).format('DD/MM/YYYY') })
+      }
+
+      list.push(transaction)
+    })
+
+    return list
+  }
+
+  transactionList () {
+    return this.displayList().map(item => {
+      if (item.type === 'date-divider') {
+        return <li
+          className={item.type}
+          key={item.date}>
+          {item.date}
+        </li>
+      } else {
+        this.props.categories.forEach(category => {
+          if (item.category === category.id) {
+            item.category = category.name
+          }
+        })
+
+        return <Transaction
+          key={item.id}
+          amount={item.amount}
+          date={item.date}
+          category={item.category}
+          onClick={() => this.props.onTransactionClick(item.id)} />
+      }
+    })
+  }
+
   bodyContent () {
     if (this.props.isLoading) {
       return (<div className='spinner-container'>
@@ -28,24 +73,7 @@ class TransactionList extends Component {
 
     if (this.props.transactions.length === 0) return <div className='placeholder'>No Transactions For Account</div>
 
-    return <ul className='scroll-view'>
-      {
-        this.props.transactions.map(transaction => {
-          this.props.categories.forEach(category => {
-            if (transaction.category === category.id) {
-              transaction.category = category.name
-            }
-          })
-
-          return <Transaction
-            key={transaction.id}
-            amount={transaction.amount}
-            date={transaction.date}
-            category={transaction.category}
-            onClick={() => this.props.onTransactionClick(transaction.id)} />
-        })
-      }
-    </ul>
+    return <ul className='scroll-view'>{ this.transactionList() }</ul>
   }
 
   render () {

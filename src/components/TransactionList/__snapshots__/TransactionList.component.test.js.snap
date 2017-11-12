@@ -60,6 +60,10 @@ exports[`TransactionListComponent Snapshots renders correctly with transactions 
     <ul
       className="scroll-view">
       <li
+        className="date-divider">
+        08/11/2017
+      </li>
+      <li
         className="Transaction"
         onClick={[Function]}>
         <span
@@ -97,6 +101,10 @@ exports[`TransactionListComponent Snapshots renders correctly with transactions,
     className="mt-body">
     <ul
       className="scroll-view">
+      <li
+        className="date-divider">
+        08/11/2017
+      </li>
       <li
         className="Transaction"
         onClick={[Function]}>

@@ -13,4 +13,11 @@
     text-align: center;
     margin-top: $placeholder-spacing;
   }
+
+  .date-divider {
+    padding: $default-spacing;
+    margin: $default-spacing auto $default-spacing auto;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
 }

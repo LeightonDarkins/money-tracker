@@ -1,0 +1,16 @@
+@import '../../variables.scss';
+
+#TransactionList {
+  .scroll-view {
+    overflow: auto;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+  }
+
+  .spinner-container, .placeholder {
+    text-align: center;
+    margin-top: $placeholder-spacing;
+  }
+}

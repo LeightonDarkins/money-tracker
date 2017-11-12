@@ -1,0 +1,40 @@
+@import '../../variables.scss';
+
+.Transaction {
+  width: 100%;
+  box-sizing: border-box;
+  height: $default-account-element-height;
+  padding: $default-spacing;
+  margin: $default-spacing auto $default-spacing auto;
+  border-bottom: 1px solid #ddd;
+
+  display: grid;
+  grid-template-columns: 75% 25%;
+  grid-template-rows: 50% auto;
+
+  .category {
+    font-size: $default-font-size;
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+
+  .date {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    align-self: flex-end;
+    color: #aaa;
+  }
+
+  .amount {
+    font-size: $default-font-size;
+    grid-column-start: 2;
+    grid-row-start: 1;
+    grid-row-end: span 2;
+    align-self: center;
+    justify-self: end;
+  }
+}

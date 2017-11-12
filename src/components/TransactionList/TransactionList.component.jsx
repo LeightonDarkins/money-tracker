@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Transaction from '../Transaction/Transaction.component.jsx'
 
+import './TransactionList.scss'
+
 class TransactionList extends Component {
   constructor (props) {
     super(props)
@@ -19,14 +21,14 @@ class TransactionList extends Component {
 
   bodyContent () {
     if (this.props.isLoading) {
-      return (<div className='transaction-list-spinner-container'>
-        <i className='fa fa-circle-o-notch fa-spin fa-2x transaction-list-spinner' aria-hidden='true' />
+      return (<div className='spinner-container'>
+        <i className='fa fa-circle-o-notch fa-spin fa-2x spinner' aria-hidden='true' />
       </div>)
     }
 
-    if (this.props.transactions.length === 0) return <ul><li>No Transactions For Account</li></ul>
+    if (this.props.transactions.length === 0) return <div className='placeholder'>No Transactions For Account</div>
 
-    return <ul id='TransactionList'>
+    return <ul className='scroll-view'>
       {
         this.props.transactions.map(transaction => {
           this.props.categories.forEach(category => {
@@ -48,7 +50,7 @@ class TransactionList extends Component {
 
   render () {
     return (
-      <div>
+      <div id='TransactionList'>
         <section className='mt-header'>
           <h2>Transactions</h2>
         </section>

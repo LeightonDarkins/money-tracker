@@ -1,5 +1,6 @@
 exports[`TransactionListComponent Snapshots renders correctly while loading 1`] = `
-<div>
+<div
+  id="TransactionList">
   <section
     className="mt-header">
     <h2>
@@ -9,10 +10,10 @@ exports[`TransactionListComponent Snapshots renders correctly while loading 1`] 
   <section
     className="mt-body">
     <div
-      className="transaction-list-spinner-container">
+      className="spinner-container">
       <i
         aria-hidden="true"
-        className="fa fa-circle-o-notch fa-spin fa-2x transaction-list-spinner" />
+        className="fa fa-circle-o-notch fa-spin fa-2x spinner" />
     </div>
   </section>
   <section
@@ -23,7 +24,8 @@ exports[`TransactionListComponent Snapshots renders correctly while loading 1`] 
 `;
 
 exports[`TransactionListComponent Snapshots renders correctly with no transactions 1`] = `
-<div>
+<div
+  id="TransactionList">
   <section
     className="mt-header">
     <h2>
@@ -32,11 +34,10 @@ exports[`TransactionListComponent Snapshots renders correctly with no transactio
   </section>
   <section
     className="mt-body">
-    <ul>
-      <li>
-        No Transactions For Account
-      </li>
-    </ul>
+    <div
+      className="placeholder">
+      No Transactions For Account
+    </div>
   </section>
   <section
     className="mt-footer">
@@ -46,7 +47,8 @@ exports[`TransactionListComponent Snapshots renders correctly with no transactio
 `;
 
 exports[`TransactionListComponent Snapshots renders correctly with transactions and categoriees 1`] = `
-<div>
+<div
+  id="TransactionList">
   <section
     className="mt-header">
     <h2>
@@ -56,14 +58,22 @@ exports[`TransactionListComponent Snapshots renders correctly with transactions 
   <section
     className="mt-body">
     <ul
-      id="TransactionList">
+      className="scroll-view">
       <li
+        className="Transaction"
         onClick={[Function]}>
-        First Category
-         : 
-        1000
-         : 
-        2017-11-08T20:42:35.805Z
+        <span
+          className="category">
+          First Category
+        </span>
+        <span
+          className="date">
+          08/11/2017
+        </span>
+        <span
+          className="amount">
+          $10.00
+        </span>
       </li>
     </ul>
   </section>
@@ -75,7 +85,8 @@ exports[`TransactionListComponent Snapshots renders correctly with transactions 
 `;
 
 exports[`TransactionListComponent Snapshots renders correctly with transactions, no categories 1`] = `
-<div>
+<div
+  id="TransactionList">
   <section
     className="mt-header">
     <h2>
@@ -85,14 +96,22 @@ exports[`TransactionListComponent Snapshots renders correctly with transactions,
   <section
     className="mt-body">
     <ul
-      id="TransactionList">
+      className="scroll-view">
       <li
+        className="Transaction"
         onClick={[Function]}>
-        category-1
-         : 
-        1000
-         : 
-        2017-11-08T20:42:35.805Z
+        <span
+          className="category">
+          category-1
+        </span>
+        <span
+          className="date">
+          08/11/2017
+        </span>
+        <span
+          className="amount">
+          $10.00
+        </span>
       </li>
     </ul>
   </section>

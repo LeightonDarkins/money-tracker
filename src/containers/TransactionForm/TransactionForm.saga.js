@@ -12,6 +12,7 @@ import {
 import { push } from 'react-router-redux'
 
 import { apiError } from '../../common/common.actions'
+import MoneyTrackerError from '../../common/MoneyTrackerError'
 
 export function * createTransaction (action) {
   try {
@@ -19,7 +20,18 @@ export function * createTransaction (action) {
     yield put(clearTransactionForm())
     yield put(push('/'))
   } catch (error) {
-    yield put(apiError(error))
+    if (error.response) {
+      let mtError = new MoneyTrackerError(
+        error.response.status,
+        error.response.statusText,
+        error.response.data.message)
+
+      yield put(apiError(mtError))
+    } else {
+      let mtError = new MoneyTrackerError()
+
+      yield put(apiError(mtError))
+    }
   }
 }
 

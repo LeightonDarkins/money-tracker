@@ -9,10 +9,10 @@ class ErrorHandler extends Component {
     return (<div id='ErrorHandler'>
       { this.props.errors.map(errorItem => {
         return <ErrorComponent
-          key={errorItem.response.headers.date}
-          title='Error'
-          message={errorItem.response.statusText}
-          onClick={() => this.props.onErrorClick(errorItem.response.headers.date)}
+          key={errorItem.getId()}
+          title={errorItem.getTitle()}
+          message={errorItem.getMessage()}
+          onClick={() => this.props.onErrorClick(errorItem.getId())}
         />
       }) }
     </div>)

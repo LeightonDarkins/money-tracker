@@ -5,17 +5,11 @@ import { shallow } from 'enzyme'
 import renderer from 'react-test-renderer'
 import ErrorHandler from './ErrorHandler.component'
 import th from '../../common/TestHelpers'
+import MoneyTrackerError from '../../common/MoneyTrackerError'
 
 describe('ErrorHandler', () => {
   const errors = [
-    {
-      response: {
-        headers: {
-          date: '1234'
-        },
-        statusText: 'test'
-      }
-    }
+    new MoneyTrackerError()
   ]
 
   describe('Snapshots', () => {

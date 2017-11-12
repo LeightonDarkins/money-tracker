@@ -2,6 +2,7 @@
 
 import reducer from './ErrorHandler.reducer'
 import { types } from './ErrorHandler.actions'
+import MoneyTrackerError from '../../common/MoneyTrackerError'
 
 describe('ErrorHandlerReducer', () => {
   it('returns the initial state for no action', () => {
@@ -17,31 +18,15 @@ describe('ErrorHandlerReducer', () => {
   it('responds to closeError correctly', () => {
     const initialState = {
       errors: [
-        {
-          response: {
-            headers: {
-              date: '12345'
-            }
-          }
-        },
-        {
-          response: {
-            headers: {
-              date: '12354'
-            }
-          }
-        }
+        new MoneyTrackerError(),
+        new MoneyTrackerError()
       ]
     }
 
+    initialState.errors[0].id = '12345'
+
     const expectedErrors = [
-      {
-        response: {
-          headers: {
-            date: '12354'
-          }
-        }
-      }
+      initialState.errors[1]
     ]
 
     expect(reducer(initialState, { type: types.closeError, error: '12345' }))

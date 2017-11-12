@@ -38,7 +38,7 @@ class TransactionList extends Component {
           })
 
           return <Transaction
-            key={transaction._id}
+            key={transaction.id}
             amount={transaction.amount}
             date={transaction.date}
             category={transaction.category}
@@ -68,7 +68,7 @@ class TransactionList extends Component {
 TransactionList.propTypes = {
   transactions: PropTypes.arrayOf(
     PropTypes.shape({
-      _id: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
       amount: PropTypes.number.isRequired,
       date: PropTypes.string.isRequired,
       category: PropTypes.string.isRequired

@@ -9,6 +9,7 @@ import ErrorHandlerContainer from './ErrorHandler.container'
 import ErrorHandlerReducer from './ErrorHandler.reducer'
 
 import { apiError } from './ErrorHandler.actions'
+import MoneyTrackerError from '../../common/MoneyTrackerError'
 
 const Reducers = combineReducers({ ErrorHandler: ErrorHandlerReducer })
 
@@ -37,22 +38,11 @@ describe('ErrorHandler', () => {
 
   it('handles apiError correctly', () => {
     let errors = [
-      {
-        response: {
-          headers: {
-            date: 'date'
-          },
-          statusText: 'this is an error'
-        }
-      },
-      {
-        response: {
-          headers: {
-            date: 'date-1'
-          },
-          statusText: 'this is an error'
-        }
-      }]
+      new MoneyTrackerError(),
+      new MoneyTrackerError()
+    ]
+
+    errors[1].id = 'test'
 
     store.dispatch(apiError(errors[0]))
 

@@ -9,7 +9,7 @@ import TransactionList from './TransactionList.component'
 describe('TransactionListComponent', () => {
   const transactions = [
     {
-      _id: 'transaction-1',
+      id: 'transaction-1',
       amount: 1000,
       date: '2017-11-08T20:42:35.805Z',
       category: 'category-1'

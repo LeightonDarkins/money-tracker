@@ -6,11 +6,11 @@ exports[`ErrorHandler Snapshots should render a populated ErrorHandler with erro
     onClick={[Function]}>
     <h3
       className="heading">
-      Error
+      NETWORK ERROR
     </h3>
     <p
       className="body">
-      test
+      There was a problem connecting to the server. Check your internet connection and try again.
     </p>
     <i
       aria-hidden="true"

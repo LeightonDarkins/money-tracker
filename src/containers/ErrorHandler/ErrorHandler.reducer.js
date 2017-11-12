@@ -11,7 +11,7 @@ const accounts = (state = initialState, action) => {
 
       return Object.assign({}, state, { errors: [action.error] })
     case types.closeError:
-      let filteredErrors = state.errors.filter(err => err.id !== action.error)
+      let filteredErrors = state.errors.filter(err => err.getId() !== action.error)
 
       return Object.assign({}, state, { errors: filteredErrors })
 

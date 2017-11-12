@@ -12,12 +12,7 @@ import { apiError } from '../../common/common.actions'
 import TransactionApi from '../../apis/Transaction.api'
 import AccountApi from '../../apis/Account.api'
 import CategoryApi from '../../apis/Category.api'
-
-let mockDate = {
-  now: () => {
-    return 'test-now'
-  }
-}
+import { ErrorHandler } from '../../common/ErrorHandling/ErrorHandler'
 
 describe('TransactionFormSaga', () => {
   let saga
@@ -36,7 +31,6 @@ describe('TransactionFormSaga', () => {
 
   describe('createTransaction', () => {
     let generator
-    let copyOfDate
     let action = {
       transactionDetails: {
         id: 'test'
@@ -44,15 +38,11 @@ describe('TransactionFormSaga', () => {
     }
 
     beforeEach(() => {
-      copyOfDate = Date
-      Date = mockDate // eslint-disable-line no-global-assign
-
       generator = createTransaction(action)
     })
 
     afterEach(() => {
-      Date = copyOfDate // eslint-disable-line no-global-assign
-      copyOfDate = undefined
+      generator = undefined
     })
 
     it('completes all, happy path, side effects', () => {
@@ -63,38 +53,16 @@ describe('TransactionFormSaga', () => {
     })
 
     it('completes all, error case, side effects with no error responses', () => {
-      let expectedError = {
-        id: mockDate.now(),
-        message: undefined,
-        reason: undefined,
-        status: 'NETWORK ERROR'
-      }
-
       expect(generator.next().value).toEqual(call(TransactionApi.createTransaction, { id: 'test' }))
-      expect(generator.throw('error').value).toEqual(put(apiError(expectedError)))
+      expect(generator.throw('error').value).toEqual(call(ErrorHandler, 'error'))
+      expect(generator.next().value).toEqual(put(apiError()))
       expect(generator.next().value).toBeUndefined()
     })
 
     it('completes all, error case, side effects with an error responses', () => {
-      let error = {
-        response: {
-          status: 'test status',
-          statusText: 'test status text',
-          data: {
-            message: 'test error'
-          }
-        }
-      }
-
-      let expectedError = {
-        id: mockDate.now(),
-        message: 'test error',
-        reason: 'test status text',
-        status: 'test status'
-      }
-
       expect(generator.next().value).toEqual(call(TransactionApi.createTransaction, { id: 'test' }))
-      expect(generator.throw(error).value).toEqual(put(apiError(expectedError)))
+      expect(generator.throw('error').value).toEqual(call(ErrorHandler, 'error'))
+      expect(generator.next().value).toEqual(put(apiError()))
       expect(generator.next().value).toBeUndefined()
     })
   })
@@ -114,7 +82,8 @@ describe('TransactionFormSaga', () => {
 
     it('completes all, error case, side effects', () => {
       expect(generator.next().value).toEqual(call(CategoryApi.fetchCategories))
-      expect(generator.throw('error').value).toEqual(put(apiError('error')))
+      expect(generator.throw('error').value).toEqual(call(ErrorHandler, 'error'))
+      expect(generator.next().value).toEqual(put(apiError()))
       expect(generator.next().value).toBeUndefined()
     })
   })
@@ -134,7 +103,8 @@ describe('TransactionFormSaga', () => {
 
     it('completes all, error case, side effects', () => {
       expect(generator.next().value).toEqual(call(AccountApi.fetchAccounts))
-      expect(generator.throw('error').value).toEqual(put(apiError('error')))
+      expect(generator.throw('error').value).toEqual(call(ErrorHandler, 'error'))
+      expect(generator.next().value).toEqual(put(apiError()))
       expect(generator.next().value).toBeUndefined()
     })
   })

@@ -9,7 +9,9 @@ class MoneyTrackerError {
   getTitle () {
     if (this.status === 'NETWORK ERROR') return this.status
 
-    return `${this.status} ${this.reason}`
+    if (this.reason) {
+      return `${this.status} ${this.reason}`
+    }
   }
 
   getMessage () {

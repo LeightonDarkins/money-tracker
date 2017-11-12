@@ -7,6 +7,7 @@ import AccountListSaga, { fetchAccounts, accountClicked, addTransactionClicked }
 import { types, fetchAccountsSucceeded, fetchAccountsStarted, fetchAccountsFailed } from './AccountList.actions'
 import { apiError } from '../../common/common.actions'
 import AccountApi from '../../apis/Account.api'
+import { ErrorHandler } from '../../common/ErrorHandling/ErrorHandler'
 
 describe('AccountListSaga', () => {
   let saga
@@ -38,7 +39,8 @@ describe('AccountListSaga', () => {
 
     it('completes all, error case, side effects', () => {
       expect(generator.next().value).toEqual(put(fetchAccountsStarted()))
-      expect(generator.throw('error').value).toEqual(put(apiError('error')))
+      expect(generator.throw('error').value).toEqual(call(ErrorHandler, 'error'))
+      expect(generator.next().value).toEqual(put(apiError()))
       expect(generator.next().value).toEqual(put(fetchAccountsFailed()))
       expect(generator.next().value).toBeUndefined()
     })

@@ -9,7 +9,7 @@ import ErrorHandlerContainer from './ErrorHandler.container'
 import ErrorHandlerReducer from './ErrorHandler.reducer'
 
 import { apiError } from './ErrorHandler.actions'
-import MoneyTrackerError from '../../common/MoneyTrackerError'
+import MoneyTrackerError from '../../common/ErrorHandling/MoneyTrackerError'
 
 const Reducers = combineReducers({ ErrorHandler: ErrorHandlerReducer })
 

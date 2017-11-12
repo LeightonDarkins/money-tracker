@@ -5,7 +5,7 @@ import { shallow } from 'enzyme'
 import renderer from 'react-test-renderer'
 import ErrorHandler from './ErrorHandler.component'
 import th from '../../common/TestHelpers'
-import MoneyTrackerError from '../../common/MoneyTrackerError'
+import MoneyTrackerError from '../../common/ErrorHandling/MoneyTrackerError'
 
 describe('ErrorHandler', () => {
   const errors = [

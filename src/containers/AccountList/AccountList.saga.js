@@ -3,6 +3,7 @@ import AccountApi from '../../apis/Account.api'
 import { fetchAccountsSucceeded, fetchAccountsStarted, fetchAccountsFailed, types } from './AccountList.actions'
 import { apiError } from '../../common/common.actions'
 import { push } from 'react-router-redux'
+import { ErrorHandler } from '../../common/ErrorHandling/ErrorHandler'
 
 export function * fetchAccounts () {
   try {
@@ -10,7 +11,8 @@ export function * fetchAccounts () {
     const accounts = yield call(AccountApi.fetchAccounts)
     yield put(fetchAccountsSucceeded(accounts))
   } catch (error) {
-    yield put(apiError(error))
+    let mtError = yield call(ErrorHandler, error)
+    yield put(apiError(mtError))
     yield put(fetchAccountsFailed())
   }
 }

@@ -2,7 +2,7 @@
 
 import reducer from './ErrorHandler.reducer'
 import { types } from './ErrorHandler.actions'
-import MoneyTrackerError from '../../common/MoneyTrackerError'
+import MoneyTrackerError from '../../common/ErrorHandling/MoneyTrackerError'
 
 describe('ErrorHandlerReducer', () => {
   it('returns the initial state for no action', () => {

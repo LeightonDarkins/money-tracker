@@ -11,8 +11,8 @@ import {
 } from './TransactionForm.actions'
 import { push } from 'react-router-redux'
 
+import { ErrorHandler } from '../../common/ErrorHandling/ErrorHandler'
 import { apiError } from '../../common/common.actions'
-import MoneyTrackerError from '../../common/MoneyTrackerError'
 
 export function * createTransaction (action) {
   try {
@@ -20,18 +20,8 @@ export function * createTransaction (action) {
     yield put(clearTransactionForm())
     yield put(push('/'))
   } catch (error) {
-    if (error.response) {
-      let mtError = new MoneyTrackerError(
-        error.response.status,
-        error.response.statusText,
-        error.response.data.message)
-
-      yield put(apiError(mtError))
-    } else {
-      let mtError = new MoneyTrackerError()
-
-      yield put(apiError(mtError))
-    }
+    let mtError = yield call(ErrorHandler, error)
+    yield put(apiError(mtError))
   }
 }
 
@@ -40,7 +30,8 @@ export function * fetchCategories () {
     const categories = yield call(CategoryApi.fetchCategories)
     yield put(transactionFormFetchCategoriesSucceeded(categories))
   } catch (error) {
-    yield put(apiError(error))
+    let mtError = yield call(ErrorHandler, error)
+    yield put(apiError(mtError))
   }
 }
 
@@ -49,7 +40,8 @@ export function * fetchAccounts () {
     const accounts = yield call(AccountApi.fetchAccounts)
     yield put(transactionFormFetchAccountsSucceeded(accounts))
   } catch (error) {
-    yield put(apiError(error))
+    let mtError = yield call(ErrorHandler, error)
+    yield put(apiError(mtError))
   }
 }
 

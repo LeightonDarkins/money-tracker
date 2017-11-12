@@ -1,10 +1,11 @@
 import { connect } from 'react-redux'
 import TransactionList from '../../components/TransactionList/TransactionList.component.jsx'
-import { fetchTransactions } from './TransactionList.actions'
+import { fetchTransactions, fetchCategories } from './TransactionList.actions'
 
 const mapStateToProps = state => {
   return {
     transactions: state.TransactionList.transactions,
+    categories: state.TransactionList.categories,
     isLoading: state.TransactionList.isLoading
   }
 }
@@ -15,8 +16,10 @@ const mapDispatchToProps = dispatch => {
       console.log(`Transaction Clicked ${id}`)
     },
     fetchTransactions: (id) => {
-      console.log(`Fetching Transactions ${id}`)
       dispatch(fetchTransactions(id))
+    },
+    fetchCategories: (id) => {
+      dispatch(fetchCategories())
     }
   }
 }

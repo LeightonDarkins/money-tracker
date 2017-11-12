@@ -1,6 +1,6 @@
 import { types } from './TransactionList.actions'
 
-const initialState = { transactions: [], isLoading: false }
+const initialState = { transactions: [], categories: [], isLoading: false }
 
 const accounts = (state = initialState, action) => {
   switch (action.type) {
@@ -14,6 +14,8 @@ const accounts = (state = initialState, action) => {
         })
     case types.fetchTransactionsFailed:
       return Object.assign({}, state, { isLoading: false })
+    case types.fetchCategoriesSucceeded:
+      return Object.assign({}, state, { categories: action.categories })
     default:
       return state
   }

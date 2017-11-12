@@ -1,0 +1,104 @@
+exports[`TransactionListComponent Snapshots renders correctly while loading 1`] = `
+<div>
+  <section
+    className="mt-header">
+    <h2>
+      Transactions
+    </h2>
+  </section>
+  <section
+    className="mt-body">
+    <div
+      className="transaction-list-spinner-container">
+      <i
+        aria-hidden="true"
+        className="fa fa-circle-o-notch fa-spin fa-2x transaction-list-spinner" />
+    </div>
+  </section>
+  <section
+    className="mt-footer">
+    footer
+  </section>
+</div>
+`;
+
+exports[`TransactionListComponent Snapshots renders correctly with no transactions 1`] = `
+<div>
+  <section
+    className="mt-header">
+    <h2>
+      Transactions
+    </h2>
+  </section>
+  <section
+    className="mt-body">
+    <ul>
+      <li>
+        No Transactions For Account
+      </li>
+    </ul>
+  </section>
+  <section
+    className="mt-footer">
+    footer
+  </section>
+</div>
+`;
+
+exports[`TransactionListComponent Snapshots renders correctly with transactions and categoriees 1`] = `
+<div>
+  <section
+    className="mt-header">
+    <h2>
+      Transactions
+    </h2>
+  </section>
+  <section
+    className="mt-body">
+    <ul
+      id="TransactionList">
+      <li
+        onClick={[Function]}>
+        First Category
+         : 
+        1000
+         : 
+        2017-11-08T20:42:35.805Z
+      </li>
+    </ul>
+  </section>
+  <section
+    className="mt-footer">
+    footer
+  </section>
+</div>
+`;
+
+exports[`TransactionListComponent Snapshots renders correctly with transactions, no categories 1`] = `
+<div>
+  <section
+    className="mt-header">
+    <h2>
+      Transactions
+    </h2>
+  </section>
+  <section
+    className="mt-body">
+    <ul
+      id="TransactionList">
+      <li
+        onClick={[Function]}>
+        category-1
+         : 
+        1000
+         : 
+        2017-11-08T20:42:35.805Z
+      </li>
+    </ul>
+  </section>
+  <section
+    className="mt-footer">
+    footer
+  </section>
+</div>
+`;

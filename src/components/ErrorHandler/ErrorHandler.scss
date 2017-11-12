@@ -1,0 +1,9 @@
+@import '../../variables.scss';
+
+#ErrorHandler {
+  z-index: 999;
+  position: absolute;
+  width: 100vw;
+  max-width: 1280px;
+  margin: 0;
+}

@@ -1,0 +1,17 @@
+exports[`Error Snapshots should render an empty ErrorHandler with no errors 1`] = `
+<div
+  className="ErrorComponent"
+  onClick={[Function]}>
+  <h3
+    className="heading">
+    title
+  </h3>
+  <p
+    className="body">
+    message
+  </p>
+  <i
+    aria-hidden="true"
+    className="fa fa-times close" />
+</div>
+`;

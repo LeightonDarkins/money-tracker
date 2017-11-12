@@ -1,0 +1,25 @@
+exports[`ErrorHandler Snapshots should render a populated ErrorHandler with errors 1`] = `
+<div
+  id="ErrorHandler">
+  <div
+    className="ErrorComponent"
+    onClick={[Function]}>
+    <h3
+      className="heading">
+      Error
+    </h3>
+    <p
+      className="body">
+      test
+    </p>
+    <i
+      aria-hidden="true"
+      className="fa fa-times close" />
+  </div>
+</div>
+`;
+
+exports[`ErrorHandler Snapshots should render an empty ErrorHandler with no errors 1`] = `
+<div
+  id="ErrorHandler" />
+`;

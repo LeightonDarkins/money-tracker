@@ -5,7 +5,8 @@
   box-sizing: border-box;
   height: $default-account-element-height;
   padding: $default-spacing;
-  margin: $default-spacing auto $default-spacing auto;
+  padding-bottom: $default-spacing * 2;
+  margin: $default-spacing auto 0 auto;
   border-bottom: 1px solid #ddd;
 
   display: grid;

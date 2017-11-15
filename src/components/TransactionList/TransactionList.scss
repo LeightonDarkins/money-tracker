@@ -16,8 +16,9 @@
 
   .date-divider {
     padding: $default-spacing;
-    margin: $default-spacing auto $default-spacing auto;
+    margin: 0 auto 0 auto;
     text-align: center;
+    background-color: #efefef;
     border-bottom: 1px solid #ddd;
   }
 }

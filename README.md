@@ -22,5 +22,5 @@ Start run specs: **npm test**
 
 ## Running Locally
 
-Against the prod backend: **npm run remote**
-Agaunst a local backend: **npm run local**
+Against the prod backend: **npm run remote**   
+Against a local backend: **npm run local**

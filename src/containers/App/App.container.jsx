@@ -4,7 +4,6 @@ import './App.scss'
 
 import ErrorHandler from '../../containers/ErrorHandler/ErrorHandler.container.jsx'
 import AccountList from '../../containers/AccountList/AccountList.container.jsx'
-import CategoryPage from '../../containers/CategoryPage/CategoryPage.container.jsx'
 import TransactionForm from '../../containers/TransactionForm/TransactionForm.container.jsx'
 import TransactionList from '../../containers/TransactionList/TransactionList.container.jsx'
 
@@ -14,7 +13,6 @@ class App extends React.Component {
       <div>
         <ErrorHandler />
         <Route exact path='/' component={AccountList} />
-        <Route path='/categories' component={CategoryPage} />
         <Route path='/add-transaction' component={TransactionForm} />
         <Route path='/account/:accountId' component={TransactionList} />
       </div>

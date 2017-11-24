@@ -8,11 +8,19 @@ An application to record and report on spending habits. It's great!
 
 ## Dependencies
 
-Globally install nodemon and webpack: **npm install -g webpack**  
-Install everything else **npm install**
+You know the dril... **npm install**
 
 ## Getting going
 
 Start webpack watcher: **npm run watch**  
 Start run specs with watcher: **npm run test-watch**  
 Start run specs: **npm test**  
+
+## Running in Prod
+
+**npm start**
+
+## Running Locally
+
+Against the prod backend: **npm run remote**
+Agaunst a local backend: **npm run local**

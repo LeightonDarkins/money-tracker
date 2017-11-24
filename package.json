@@ -5,13 +5,13 @@
   "main": "index.js",
   "repository": "https://github.com/LeightonDarkins/money-tracker",
   "scripts": {
-    "start": "webpack && node server.js",
+    "start": "./node_modules/webpack/bin/webpack.js && node server.js",
     "remote": "node local-server.js",
     "local": "node local-server.js --local",
-    "watch": "webpack --watch",
-    "build": "webpack",
-    "test": "npm run lint && jest",
-    "test-watch": "jest --watch",
+    "watch": "./node_modules/webpack/bin/webpack.js --watch",
+    "build": "./node_modules/webpack/bin/webpack.js",
+    "test": "npm run lint && ./node_modules/jest/bin/jest.js",
+    "test-watch": "./node_modules/jest/bin/jest.js --watch",
     "lint": "./node_modules/standard/bin/cmd.js"
   },
   "author": "",

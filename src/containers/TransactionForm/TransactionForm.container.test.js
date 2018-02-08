@@ -228,6 +228,8 @@ describe('TransactionForm Container', () => {
 
     store.dispatch(clearTransactionForm())
 
+    console.log('test')
+
     expect(amountInput.props().value).toEqual(0)
     expect(datePicker.props().value).toEqual(Mocks.formattedToday)
     expect(accountSelector.props().value).toEqual('')
